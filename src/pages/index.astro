@@ -14,12 +14,15 @@ import projects from "@/data/projects";
 const posts = await getCollection("posts");
 ---
 
-<Layout>
+<Layout title="Homepage">
   <main class="flex flex-col gap-20">
     <article class="flex flex-col gap-8">
-      <h1 class="text-3xl text-neutral-100">{presentation.title}</h1>
-      <h2
-        class="max-w-[60ch] leading-6"
+      <h1 class="text-4xl text-neutral-100 letter-spacing-2 tracking-wide font-bold font-lexend">{presentation.title} <p class="text-gray-800 tracking-wide font-ubuntu text-lg">aka kaizen</p> </h1> 
+      <h2 class ="max-w-[60ch] leading-6 font-semibold text-xl font-ubuntu text-gray-600"
+      set:html={convertAsteriskToStrongTag(presentation.work)}
+      />
+      <h2 
+        class="max-w-[60ch] leading-6 font-lexend text-lg"
         set:html={convertAsteriskToStrongTag(presentation.description)}
       />
       <SocialLinks />
@@ -27,7 +30,7 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Latest posts</h3>
+        <h3 class="text-xl tracking-wide font-lexend text-neutral-100">Latest on Blog</h3>
         <Link href="/posts" label="See all posts" isUnderline target="_self" />
       </header>
       {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
@@ -51,7 +54,7 @@ const posts = await getCollection("posts");
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">
+        <h3 class="text-xl text-neutral-100 tracking-wide font-lexend">
           Selected projects ({projects.length})
         </h3>
       </header>
@@ -65,12 +68,12 @@ const posts = await getCollection("posts");
       </section>
     </article>
 
-    <article class="flex flex-col gap-8">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">Get in touch</h3>
+    <article class="flex flex-col gap-5">
+      <header class="flex w-full flex-row justify-between">
+        <h3 class="text-lg font-lexend tracking-wide text-neutral-100">Get in touch</h3>
       </header>
-      <p>
-        Email me at <Link
+      <p class="font-medium">
+         Email me at <Link
           href={`mailto:${presentation.mail}`}
           label={presentation.mail}
         /> or follow me via my social links.

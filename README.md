@@ -1,52 +1,29 @@
-# 👨‍🚀 Astro - Portfolio Template
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+-this is how you write blog 
+---
+title: "Untitled"
+publishedAt: 2023-05-24
+description: "Lorem ipsum dolor sit amet consectetur et ultrices blandit neque ege"
+slug: "untitled"
+isPublish: true
+---
 
-![Template](https://github.com/MaeWolff/astro-portfolio-template/blob/main/public/opengraph-image.jpg)
+## Hello World
 
-This theme/template is designed and crafted by [me](https://www.maxencewolff.com).
-NB: Additional color themes can also be configured on the `src/data/theme.ts` file.
 
-## 🥷 Usage
+Vos illo in habet, ipse est suo fuit, solidissima invecta moverent [si] pericula
+ea pelle te quatiens proditus. Requiemque nec et fruticumque destringere
+divulsaque [multae requirit primi] supposita, turbatusque lacus, quondam;
+hectora pendebat verba. Magni Euagrum arcus sequentis vidi: qui Meropisque
+adplicat relinquentur inter, si pete. Magna constitit ore rediit et parentis
+pomaria lumina seque aura.
 
-- You can modify all the information in the files in the `data` folder (presentation, social links, projects list, colors).
-- You can write articles in `markdown` format in the `content/posts` folder.
+[multae requirit primi]: http://heu.io/
+[si]: http://infelixlucina.net/mutati
 
-## 🧞 Commands
+this is how you link
 
-All commands are run from the root of the project, from a terminal:
+add > for a left bar 
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+add ' around the text for a code space look
 
-## Contributors ✨
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SterbenVD"><img src="https://avatars.githubusercontent.com/u/90999906?v=4?s=100" width="100px;" alt="Vishal Vijay Devadiga"/><br /><sub><b>Vishal Vijay Devadiga</b></sub></a><br /><a href="https://github.com/MaeWolff/astro-portfolio-template/commits?author=SterbenVD" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax

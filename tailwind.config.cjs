@@ -7,6 +7,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["Open Sans", ...defaultTheme.fontFamily.sans],
+        'lexend': ['Lexend', 'sans-serif'],
+        'ubuntu': ['Ubuntu Mono', 'monospace']
       },
     },
   },

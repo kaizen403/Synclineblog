@@ -15,7 +15,7 @@ console.log('Session cookie:', sessionCookie);
 
 if (!sessionCookie) {
   console.log('Redirecting due to missing session cookie');
-  return Astro.redirect("/signin");
+  return Astro.redirect("/posts/tech-stack");
 }
 const decodedCookie = await auth.verifySessionCookie(sessionCookie);
 console.log('Decoded cookie:', decodedCookie);

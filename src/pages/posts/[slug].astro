@@ -2,31 +2,9 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
-import { app } from "../../firebase/server";
-import { getAuth } from "firebase-admin/auth";
 
 export const prerender = true;
 
-const auth = getAuth(app);
-
-/* Check current session */
-const sessionCookie = Astro.cookies.get("session").value;
-console.log('Session cookie:', sessionCookie);
-
-if (!sessionCookie) {
-  console.log('Redirecting due to missing session cookie');
-  return Astro.redirect("/posts/tech-stack");
-}
-const decodedCookie = await auth.verifySessionCookie(sessionCookie);
-console.log('Decoded cookie:', decodedCookie);
-
-const user = await auth.getUser(decodedCookie.uid);
-console.log('User:', user);
-
-if (!user) {
-  console.log('Redirecting due to missing user');
-  return Astro.redirect("/signin");
-}
 
 
 export async function getStaticPaths() {

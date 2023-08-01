@@ -8,7 +8,6 @@ export default defineConfig({
   adapter: cloudflare(),
   output: 'server',
   integrations: [tailwind(), sitemap()],
-  site: syncline.pages.dev,
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

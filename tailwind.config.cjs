@@ -10,6 +10,9 @@ module.exports = {
         'lexend': ['Lexend', 'sans-serif'],
         'ubuntu': ['Ubuntu Mono', 'monospace']
       },
+      backgroundImage: theme => ({
+        'blue-black-gradient': 'radial-gradient(circle, blue 0%, black 100%)',
+      }),
     },
   },
   plugins: [],

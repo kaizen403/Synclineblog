@@ -5,6 +5,7 @@ import { SITE_URL } from "./src/data/config";
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'server',
   integrations: [tailwind(), sitemap()],
   site: SITE_URL,
   markdown: {

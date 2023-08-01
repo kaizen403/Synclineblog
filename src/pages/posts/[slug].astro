@@ -2,6 +2,9 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
+import { app } from "../../firebase/server";
+import { getAuth } from "firebase-admin/auth";
+export const prerender = true;
 
 export async function getStaticPaths() {
   const posts = await getCollection("posts");
@@ -18,6 +21,22 @@ type Props = {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+
+
+const auth = getAuth(app);
+
+/* Check current session */
+const sessionCookie = Astro.cookies.get("session").value;
+
+if (!sessionCookie) {
+  return Astro.redirect("/signin");
+}
+const decodedCookie = await auth.verifySessionCookie(sessionCookie);
+const user = await auth.getUser(decodedCookie.uid);
+
+if (!user) {
+  return Astro.redirect("/signin");
+}
 ---
 
 <Layout title={post.data.title}>

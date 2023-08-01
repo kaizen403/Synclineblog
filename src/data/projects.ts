@@ -9,19 +9,19 @@ export type Project = {
 const projects: Project[] = [
   {
     title: "Secure Scan",
-    techs: ["python","php","mysql","JS"],
+    techs: ["Python","php","Mysql","Javascript"],
     link: "https://github.com/ryuux21/Secure-scan",
     contributors: "contributers: @brainiac"
   },
   {
-    title: "Portfolio",
-    techs: ["javascript", "css"],
+    title: "Old Portfolio",
+    techs: ["Javascript", "CSS"],
     link: "https://redadmin.pages.dev/",
   },
   
   {
     title: "Adonispot",
-    techs: ["Nextjs13", "typescript", "tailwind", "clerk", "..."],
+    techs: ["Nextjs", "Typescript", "Tailwind", "Clerk", "next-auth", "Prisma"],
     link: "/",
     isComingSoon: true,
   },

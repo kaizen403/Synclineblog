@@ -18,21 +18,29 @@ const posts = await getCollection("posts");
 <Layout title="Syncline | Homepage">
   <main class="flex flex-col gap-20">
     <article class="flex flex-col gap-8">
-      <h1 class="text-4xl text-neutral-100 letter-spacing-2 tracking-wide font-bold font-lexend">{presentation.title} <p class="text-gray-800 tracking-wide font-ubuntu text-lg">aka kaizen</p> </h1> 
+      <div class="flex items-center gap-4">
+        <img src="pfp.png" alt="pfp" class="w-20 h-20 rounded-full shadow-neon"/>
+        <h1 class="ml-3 text-4xl text-neutral-100 letter-spacing-2 tracking-wide font-bold font-lexend">
+          {presentation.title}
+          <p class="text-gray-800 tracking-wide font-ubuntu text-lg">aka kaizen</p>
+        </h1>
+        
+      </div>
       <h2 class ="max-w-[60ch] leading-6 font-semibold text-xl font-ubuntu text-gray-600"
-      set:html={convertAsteriskToStrongTag(presentation.work)}
+        set:html={convertAsteriskToStrongTag(presentation.work)}
       />
       <h2 
         class="max-w-[60ch] leading-6 font-lexend text-lg"
         set:html={convertAsteriskToStrongTag(presentation.description)}
       />
       <SocialLinks />
-    </article>
+  </article>
+  
 
-    <article class="flex flex-col gap-8">
+    <article class="flex flex-col gap-7">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-xl tracking-wide font-lexend text-neutral-100">Latest on Blog</h3>
-        <Link href="/posts" label="See all posts" isUnderline target="_self" />
+        <Link href="/posts" label="Sign in for more" isUnderline target="_self" />
       </header>
       {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 
@@ -51,12 +59,13 @@ const posts = await getCollection("posts");
               ))
         }
       </section>
+      <p class="font-lexend">To view all posts. Sign in.</p>
     </article>
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-xl text-neutral-100 tracking-wide font-lexend">
-          Selected projects ({projects.length})
+          Selected Projects ({projects.length})
         </h3>
       </header>
       {projects.length === 0 && <p>Oops, I must work^^^^^</p>}

@@ -1,13 +1,14 @@
 .post p {
-  @apply leading-7;
+  @apply font-lexend leading-7;
 }
 
 .post code {
   @apply rounded-sm bg-neutral-800 px-1 py-[2px] text-orange-500;
 }
 
+
 .post h2 {
-  @apply mt-6 text-3xl font-lexend text-neutral-100;
+  @apply mt-6 text-3xl font-lexend tracking-wider text-neutral-100;
 }
 
 .post h3 {

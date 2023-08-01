@@ -6,5 +6,9 @@ body{
     height: 100%;
     width: 100vw;
     background-color:black;
-  }
+}
+
+.shadow-neon {
+  box-shadow: 0 0 10px #04c9fa, 0 0 20px;
+}
   

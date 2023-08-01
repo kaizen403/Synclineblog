@@ -1,12 +1,12 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
-import cloudflare from '@astrojs/cloudflare';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
-  adapter: cloudflare(),
   output: 'server',
+  adapter: vercel(),
   integrations: [tailwind(), sitemap()],
   markdown: {
     syntaxHighlight: "shiki",
@@ -14,5 +14,6 @@ export default defineConfig({
       theme: "nord",
       wrap: false,
     },
+
   },
 });

@@ -14,7 +14,7 @@ type Presentation = {
 const presentation: Presentation = {
   mail: "rishivhavle21@gmail.com",
   title: "Hi, I’m Rishi  ",
-  work: "web devoloper @ parrotctfs",
+  work: "DevOps Engineer @ parrotctfs",
   description:
     "Hey there, I'm a web developer and a cybersecurity enthusiast, and I've been diving deep into these fields for over three years, even during my high school days. Now, I've graduated and turned 18! Currently, I'm busy creating awesome projects using Next.js 13 and other cool tools. Oh, and by the way, I'm pretty into fitness too.",
   socials: [

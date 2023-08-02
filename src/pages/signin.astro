@@ -2,8 +2,10 @@
 import { app } from "../firebase/server";
 import { getAuth } from "firebase-admin/auth";
 import Layout from "../layouts/Layout.astro";
+import { signInWithRedirect } from "firebase/auth";
 
-/* Check if the user is authenticated */
+/* Check if the use,
+signInWithRedirectr is authenticated */
 const auth = getAuth(app);
 const sessionCookie = Astro.cookies.get("session").value;
 if (sessionCookie) {

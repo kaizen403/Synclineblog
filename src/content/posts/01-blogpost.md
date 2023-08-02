@@ -1,4 +1,4 @@
-[---
+---
 title: "Next-Auth vs Clerk: Battle of the Authentication Beasts"
 publishedAt: 2023-07-28
 description: "Looking to ramp up the security game in your Next.js app? You're likely to bump into two big names. Next-Auth and Clerk. Let's get our hands dirty and compare these two champs head to head"

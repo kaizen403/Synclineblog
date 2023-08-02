@@ -1,11 +1,11 @@
----
+[---
 title: "Next-Auth vs Clerk: Battle of the Authentication Beasts"
 publishedAt: 2023-07-28
 description: "Looking to ramp up the security game in your Next.js app? You're likely to bump into two big names. Next-Auth and Clerk. Let's get our hands dirty and compare these two champs head to head"
 slug: "next-auth-vs-clerk-auth-battle"
 isPublish: true
 ---
-## Next-Auth vs Clerk: Battle of the Authentication Beasts
+# Next-Auth vs Clerk: Battle of the Authentication Beasts
 
 ### Hey folks!
 
@@ -72,3 +72,4 @@ Need a full-feature, premium user management system that comes with a ready-to-r
 ## Wrapping Up
 
 Picking between Next-Auth and Clerk comes down to your needs, cashflow, and tech prowess. Both rock the user authentication game in their own way and cater to different needs and vibes. So, get a firm handle on what your project needs before choosing your champion. Later, devs!
+](02-blogpost.md)

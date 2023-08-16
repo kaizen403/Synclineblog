@@ -11,6 +11,7 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
+import { Analytics } from "@vercel/analytics/react";
 
 const posts = await getCollection("posts");
 ---
@@ -91,5 +92,6 @@ const posts = await getCollection("posts");
 
       <SocialLinks />
     </article>
+    <Analytics />
   </main>
 </Layout>

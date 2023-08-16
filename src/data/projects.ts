@@ -20,10 +20,9 @@ const projects: Project[] = [
   },
   
   {
-    title: "Adonispot",
-    techs: ["Nextjs", "Typescript", "Tailwind", "Clerk", "next-auth", "Prisma"],
-    link: "/",
-    isComingSoon: true,
+    title: "SigmaGram",
+    techs: ["Nextjs", "Typescript","Tailwind","React", "Mongodb", "Uploadthing", "Shadcnui", "Zod"],
+    link: "https://sigmagram.in",
   },
 ];
 

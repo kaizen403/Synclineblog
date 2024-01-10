@@ -24,6 +24,11 @@ const projects: Project[] = [
     techs: ["Nextjs", "Typescript","Tailwind","React", "Mongodb", "Uploadthing", "Shadcnui", "Zod", "(MERN STACK)"],
     link: "https://sigmagram.in",
   },
+  {
+    title: "KazAI",
+    techs: ["Nextjs14","Typescript","Tailwind","React","Shadcnui"],
+    link: "https://ai-exam-problem-solver.vercel.app/",
+  },
 ];
 
 export default projects;

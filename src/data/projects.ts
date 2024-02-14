@@ -13,22 +13,34 @@ const projects: Project[] = [
     link: "https://github.com/ryuux21/Secure-scan",
     contributors: "contributers: @brainiac"
   },
-  {
-    title: "Old Portfolio",
-    techs: ["Javascript", "CSS"],
-    link: "https://redadmin.pages.dev/",
+    {
+    title: "Pantrypal",
+    techs: ["Nextjs14","Lucia auth", "Prisma ORM","Typescript","Tailwind","React","Shadcnui","uploadthing"],
+    link: "https://pantrypal-delta.vercel.app/",
   },
-  
-  {
+    {
     title: "SigmaGram",
     techs: ["Nextjs", "Typescript","Tailwind","React", "Mongodb", "Uploadthing", "Shadcnui", "Zod", "(MERN STACK)"],
     link: "https://sigmagram.in",
+  },
+
+      {
+    title: "CupidMatch",
+    techs: ["Nextjs14","Next auth", "Prisma ORM","Typescript","Tailwind","React"],
+    link: "https://cupid-match.vercel.app/",
   },
   {
     title: "KazAI",
     techs: ["Nextjs14","Typescript","Tailwind","React","Shadcnui"],
     link: "https://ai-exam-problem-solver.vercel.app/",
   },
+    {
+    title: "Old Portfolio",
+    techs: ["Javascript", "CSS"],
+    link: "https://redadmin.pages.dev/",
+  },
+  
+
 ];
 
 export default projects;

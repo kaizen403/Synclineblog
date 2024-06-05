@@ -7,6 +7,16 @@ export type Project = {
 };
 
 const projects: Project[] = [
+    {
+    title: "webRTC_P2P",
+    techs: ["webRTC", "Nodejs", "js", "ts", "React"],
+    link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
+  },
+  {
+    title: "Image_Optimization_aws",
+    techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
+    link: "https://redadmin.pages.dev/",
+  },
   {
     title: "Secure Scan",
     techs: ["Python","php","Mysql","Javascript"],
@@ -15,7 +25,7 @@ const projects: Project[] = [
   },
     {
     title: "Pantrypal",
-    techs: ["Nextjs14","Lucia auth", "Prisma ORM","Typescript","Tailwind","React","Shadcnui","uploadthing"],
+    techs: ["Nextjs14","lucia auth", "prisma","Typescript","Tailwind","React","Shadcnui","uploadthing"],
     link: "https://pantrypal-delta.vercel.app/",
   },
     {
@@ -26,7 +36,7 @@ const projects: Project[] = [
 
       {
     title: "CupidMatch",
-    techs: ["Nextjs14","Next auth", "Prisma ORM","Typescript","Tailwind","React"],
+    techs: ["Nextjs14","Next auth", "prismaorm","Typescript","Tailwind","React"],
     link: "https://cupid-match.vercel.app/",
   },
   {
@@ -39,6 +49,7 @@ const projects: Project[] = [
     techs: ["Javascript", "CSS"],
     link: "https://redadmin.pages.dev/",
   },
+
   
 
 ];

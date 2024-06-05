@@ -12,11 +12,7 @@ const projects: Project[] = [
     techs: ["webRTC", "Nodejs", "js", "ts", "React"],
     link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
   },
-  {
-    title: "Image_Optimization_aws",
-    techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
-    link: "https://redadmin.pages.dev/",
-  },
+ 
   {
     title: "Secure Scan",
     techs: ["Python","php","Mysql","Javascript"],
@@ -43,6 +39,11 @@ const projects: Project[] = [
     title: "KazAI",
     techs: ["Nextjs14","Typescript","Tailwind","React","Shadcnui"],
     link: "https://ai-exam-problem-solver.vercel.app/",
+  },
+   {
+    title: "Image_Optimization_aws",
+    techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
+    link: "https://github.com/kaizen403/image-optimization-aws/tree/main",
   },
     {
     title: "Old Portfolio",

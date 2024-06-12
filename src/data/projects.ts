@@ -45,6 +45,11 @@ const projects: Project[] = [
     techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
     link: "https://github.com/kaizen403/image-optimization-aws/tree/main",
   },
+      {
+    title: "3D-AI-Japanese-Teacher",
+    techs: ["Nextjs14", "Three.js","Typescript","openai","azure"],
+    link: "https://github.com/kaizen403/3D-AI-japanese-teacher-three.js",
+  },
     {
     title: "Old Portfolio",
     techs: ["Javascript", "CSS"],

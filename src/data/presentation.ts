@@ -14,9 +14,9 @@ type Presentation = {
 const presentation: Presentation = {
   mail: "rishivhavle21@gmail.com",
   title: "Hi, I’m Rishi  ",
-  work: "Full Stack Webdev @ VulnVoyager",
+  work: "Full Stack Webdev @ ParrotCTFS",
   description:
-    "Hey there, I'm a web developer and a cybersecurity enthusiast, and I've been diving deep into these fields for over four years, even during my high school days. Now, I've graduated and turned 18! Currently, I'm busy creating awesome projects using Next.js 14 and other cool tools. Oh, and by the way, I'm pretty into fitness too.",
+    "Just a 19-year-old passionate about technology and product development, with a strong interest in fitness.",
   socials: [
     {
       label: "Instagram",
@@ -28,8 +28,13 @@ const presentation: Presentation = {
     },
     {
       label: "Github",
-      link: "https://github.com/",
+      link: "https://github.com/kaizen403",
     },
+    {
+      label: "Linkedin",
+      link: "https://www.linkedin.com/in/rishi-vhavle-35a166296",
+    },
+    
   ],
 };
 

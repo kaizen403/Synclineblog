@@ -12,13 +12,14 @@ const projects: Project[] = [
     techs: ["webRTC", "Nodejs", "js", "ts", "React"],
     link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
   },
- 
   {
-    title: "Secure Scan",
-    techs: ["Python","php","Mysql","Javascript"],
-    link: "https://github.com/ryuux21/Secure-scan",
-    contributors: "contributers: @brainiac"
+    title: " Insecure IDOR API",
+    techs: ["express", "nodejs", "prisma", "postgres", "js"],
+    link: "https://github.com/kaizen403/Insecure_IDOR_API",
   },
+
+ 
+  
     {
     title: "Pantrypal",
     techs: ["Nextjs14","lucia auth", "prisma","Typescript","Tailwind","React","Shadcnui","uploadthing"],
@@ -44,6 +45,12 @@ const projects: Project[] = [
     title: "Image_Optimization_aws",
     techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
     link: "https://github.com/kaizen403/image-optimization-aws/tree/main",
+  },
+  {
+    title: "Secure Scan",
+    techs: ["Python","php","Mysql","Javascript"],
+    link: "https://github.com/ryuux21/Secure-scan",
+    contributors: "contributers: @brainiac"
   },
       {
     title: "3D-AI-Japanese-Teacher",

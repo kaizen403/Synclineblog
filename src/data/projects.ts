@@ -21,7 +21,7 @@ const projects: Project[] = [
  title: " Insecure IDOR API",
     techs: ["express", "nodejs", "prisma", "postgres", "js"],
     link: "https://github.com/kaizen403/Insecure_IDOR_API",
-  }
+  },
   
     {
     title: "Pantrypal",

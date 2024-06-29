@@ -17,8 +17,11 @@ const projects: Project[] = [
     techs: ["Grpc", "postgres", "prisma", "ts", "protobufs"],
     link: "https://github.com/kaizen403/alphasecurity_GRPC_Server",
   },
-
- 
+  {
+ title: " Insecure IDOR API",
+    techs: ["express", "nodejs", "prisma", "postgres", "js"],
+    link: "https://github.com/kaizen403/Insecure_IDOR_API",
+  }
   
     {
     title: "Pantrypal",

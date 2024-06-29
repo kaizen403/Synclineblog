@@ -12,10 +12,10 @@ const projects: Project[] = [
     techs: ["webRTC", "Nodejs", "js", "ts", "React"],
     link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
   },
-  {
-    title: " Insecure IDOR API",
-    techs: ["express", "nodejs", "prisma", "postgres", "js"],
-    link: "https://github.com/kaizen403/Insecure_IDOR_API",
+   {
+    title: "alphasecurity_GRPC_Server",
+    techs: ["Grpc", "postgres", "prisma", "ts", "protobufs"],
+    link: "https://github.com/kaizen403/alphasecurity_GRPC_Server",
   },
 
  

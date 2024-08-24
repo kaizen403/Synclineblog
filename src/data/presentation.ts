@@ -20,7 +20,7 @@ const presentation: Presentation = {
   socials: [
     {
       label: "Instagram",
-      link: "https://instagram.com/itz_kaizenn",
+      link: "https://instagram.com/rishivhavle",
     },
     {
       label: "Spotify",

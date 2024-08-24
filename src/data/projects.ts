@@ -23,6 +23,11 @@ const projects: Project[] = [
     link: "https://github.com/kaizen403/CodeExecutionEngine",
   },
   {
+ title: "Grpc_TradingServer",
+    techs: ["docker", "kafka", "prisma", "nodejs", "Grpc", "postgres", "js"],
+    link: "https://github.com/kaizen403/Grpc_TradingServer",
+  },
+  {
  title: " Insecure IDOR API",
     techs: ["express", "nodejs", "prisma", "postgres", "js"],
     link: "https://github.com/kaizen403/Insecure_IDOR_API",

@@ -8,9 +8,9 @@ export type Project = {
 
 const projects: Project[] = [
     {
-    title: "webRTC_P2P",
-    techs: ["webRTC", "Nodejs", "js", "ts", "React"],
-    link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
+    title: "Grpc webrtc server",
+    techs: ["webRTC", "grpc", "next", "Nodejs", "js", "ts", "React"],
+    link: "https://github.com/kaizen403/grpc_webrtc_server",
   },
    {
     title: "alphasecurity_GRPC_Server",
@@ -58,6 +58,10 @@ const projects: Project[] = [
     title: "Image_Optimization_aws",
     techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
     link: "https://github.com/kaizen403/image-optimization-aws/tree/main",
+  },{
+    title: "webRTC_P2P",
+    techs: ["webRTC", "Nodejs", "js", "ts", "React"],
+    link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
   },
   {
     title: "Secure Scan",

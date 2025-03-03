@@ -7,9 +7,14 @@ export type Project = {
 };
 
 const projects: Project[] = [
-    {
+     {
+    title: "exai",
+    techs: [ "langchain", "langgraph","deepseek", "nextjs", "Nodejs","ts", "js"],
+    link: "https://github.com/kaizen403/exai",
+  },
+  {
     title: "Grpc webrtc server",
-    techs: ["webRTC", "grpc", "next", "Nodejs", "js", "ts", "React"],
+    techs: ["webRTC", "grpc", "Nodejs", "js", "ts", "React"],
     link: "https://github.com/kaizen403/grpc_webrtc_server",
   },
    {

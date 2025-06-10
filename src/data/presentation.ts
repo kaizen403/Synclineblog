@@ -17,7 +17,7 @@ const presentation: Presentation = {
   work:
     "Head of Software @ Netts<br/>Manager of Content Creation Services @ ParrotCTFS<br/>Founder and CTO @ KazDesk.in",
   description:
-    "Just a 19-year-old passionate about technology and product development, with a strong interest in fitness.",
+    "Just a 20-year old Powerlifter who is passionate about technology and product development.",
   socials: [
     {
       label: "Instagram",

@@ -8,20 +8,14 @@ export const get: APIRoute = async ({ request, cookies, redirect }) => {
   /* Get token from request headers */
   const idToken = request.headers.get("Authorization")?.split("Bearer ")[1];
   if (!idToken) {
-    return new Response(
-      "No token found",
-      { status: 401 }
-    );
+    return new Response("No token found", { status: 401 });
   }
 
   /* Verify id token */
   try {
     await auth.verifyIdToken(idToken);
   } catch (error) {
-    return new Response(
-      "Invalid token",
-      { status: 401 }
-    );
+    return new Response("Invalid token", { status: 401 });
   }
 
   /* Create and set session cookie */
@@ -34,5 +28,5 @@ export const get: APIRoute = async ({ request, cookies, redirect }) => {
     path: "/",
   });
 
-  return redirect("/posts");
+  return redirect("/");
 };

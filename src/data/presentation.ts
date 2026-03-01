@@ -14,8 +14,7 @@ type Presentation = {
 const presentation: Presentation = {
   mail: "rishivhavle21@gmail.com",
   title: "Hi, I’m Rishi  ",
-  work:
-    "Head of Software @ Netts<br/>Manager of Content Creation Services @ ParrotCTFS<br/>Founder and CTO @ KazDesk.in",
+  work: "",
   description:
     "Just a 20-year old Powerlifter who is passionate about technology and product development.",
   socials: [
@@ -35,7 +34,6 @@ const presentation: Presentation = {
       label: "Linkedin",
       link: "https://www.linkedin.com/in/rishi-vhavle-35a166296",
     },
-    
   ],
 };
 

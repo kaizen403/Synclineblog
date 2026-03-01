@@ -2,161 +2,370 @@ export type Project = {
   title: string;
   techs: string[];
   link: string;
+  description?: string;
+  isPinned?: boolean;
   contributors?: string;
   isComingSoon?: boolean;
 };
 
-/* ── MCP projects first ─────────────────────────────── */
 const projects: Project[] = [
+  /* ── Pinned ────────────────────────────────────────── */
   {
-    title: "postgres-mpc-server",
-    techs: ["pg", "nodejs", "langchain", "mcp", "js", "deepseek", "prisma"],
+    title: "Postgres MCP Server",
+    description:
+      "MCP server for AI tooling with secure query execution, observability, and workflow integration.",
+    techs: ["mcp", "postgres", "langchain", "nodejs", "prisma"],
     link: "https://github.com/kaizen403/postgres-mpc-server",
+    isPinned: true,
   },
   {
-    title: "Bluerock (Insecure MCP Server)",
-    techs: ["nodejs", "langchain", "mcp", "groq", "nextjs", "pg"],
-    link: "https://github.com/kaizen403/bluerock",
-  },
-
-  /* ── AI-focused projects ───────────────────────────── */
-  {
-    title: "Systems Design AI",
-    techs: ["llama", "langchain", "ts", "nodejs", "nextjs", "js", "prisma", "pg"],
-    link: "https://systems-design-ai.vercel.app/",
-  },
-  {
-    title: "KazDesk AI Call Center",
+    title: "Pendent Interview Backend",
+    description:
+      "Interview orchestration backend for AI-assisted and voice-based interviews with LiveKit media, LangChain agents, and vector search.",
     techs: [
-      "ts",
-      "nodejs",
-      "elevenlabs",
-      "gcp",
-      "openai",
-      "prisma",
-      "twilio",
-      "express",
+      "typescript",
+      "livekit",
       "langchain",
-      "mailgun",
+      "openai",
+      "milvus",
+      "prisma",
+      "postgres",
     ],
-    link: "https://kazdesk.in/",
+    link: "https://github.com/Pendent-ai/interview-pendent-be",
+    isPinned: true,
+  },
+  {
+    title: "gRPC Trading Server",
+    description:
+      "Realtime price-change streaming built with Kafka. Wall Street Hijack CTF challenge.",
+    techs: ["grpc", "kafka", "docker", "prisma", "nodejs", "postgres"],
+    link: "https://github.com/Parrot-CTFs/Grpc_TradingServer",
+    isPinned: true,
+  },
+  {
+    title: "Pendent Jobs Backend",
+    description:
+      "ATS listings backend with AI-reviewed job postings, resume uploads via MinIO, and hardened security middleware.",
+    techs: ["typescript", "express", "prisma", "postgres", "minio"],
+    link: "https://github.com/Pendent-ai/jobs-pendent-be",
+    isPinned: true,
+  },
+  {
+    title: "AI Browser Control v2",
+    description:
+      "Browser control framework for AI agents with task orchestration, stateful sessions, and safety guardrails.",
+    techs: ["typescript", "puppeteer", "langchain", "nodejs"],
+    link: "https://github.com/kaizen403/ai_browser_control_v2",
+    isPinned: true,
+  },
+  {
+    title: "AI Web Pentester",
+    description:
+      "AI pentesting toolkit with structured recon, vulnerability workflows, and automated reporting.",
+    techs: ["javascript", "langchain", "nodejs"],
+    link: "https://github.com/kaizen403/ai_web_pentester",
+    isPinned: true,
   },
 
-  /* ── All other projects (original order retained) ─── */
+  /* ── AI / ML ───────────────────────────────────────── */
   {
-    title: "exai",
-    techs: ["langchain", "langgraph", "deepseek", "nextjs", "Nodejs", "ts", "js"],
+    title: "ExAI",
+    description:
+      "Bringing memories to life using LangGraph advanced RAG model with DeepSeek.",
+    techs: ["langgraph", "langchain", "deepseek", "nextjs", "nodejs"],
     link: "https://github.com/kaizen403/exai",
   },
   {
-    title: "Grpc webrtc server",
-    techs: ["webRTC", "grpc", "Nodejs", "js", "ts", "React"],
-    link: "https://github.com/kaizen403/grpc_webrtc_server",
+    title: "Systems Design AI",
+    description: "AI-powered systems design learning platform.",
+    techs: ["llama", "langchain", "nextjs", "prisma", "postgres", "typescript"],
+    link: "https://github.com/kaizen403/system-design-ai",
   },
   {
-    title: "alphasecurity_GRPC_Server",
-    techs: ["Grpc", "postgres", "prisma", "ts", "protobufs"],
-    link: "https://github.com/kaizen403/alphasecurity_GRPC_Server",
-  },
-  {
-    title: "CodeExecutionEngine",
-    techs: ["Nextjs", "Nodejs", "Socket.io", "aws_S3", "Docker", "ts", "React"],
-    link: "https://github.com/kaizen403/CodeExecutionEngine",
-  },
-  {
-    title: "Grpc_TradingServer",
-    techs: ["docker", "kafka", "prisma", "nodejs", "Grpc", "postgres", "js"],
-    link: "https://github.com/kaizen403/Grpc_TradingServer",
-  },
-  {
-    title: "Insecure IDOR API",
-    techs: ["express", "nodejs", "prisma", "postgres", "js"],
-    link: "https://github.com/kaizen403/Insecure_IDOR_API",
-  },
-  {
-    title: "Pantrypal",
+    title: "KazDesk AI Call Center",
+    description:
+      "AI-driven call center with voice synthesis, LLM routing, and email automation.",
     techs: [
-      "Nextjs14",
-      "lucia auth",
+      "typescript",
+      "elevenlabs",
+      "openai",
+      "twilio",
+      "langchain",
       "prisma",
-      "Typescript",
-      "Tailwind",
-      "React",
-      "Shadcnui",
-      "uploadthing",
+      "express",
     ],
-    link: "https://pantrypal-delta.vercel.app/",
+    link: "https://github.com/kaizen403/kazdesk",
   },
   {
-    title: "SigmaGram",
-    techs: [
-      "Nextjs",
-      "Typescript",
-      "Tailwind",
-      "React",
-      "Mongodb",
-      "Uploadthing",
-      "Shadcnui",
-      "Zod",
-      "(MERN STACK)",
-    ],
-    link: "https://sigmagram.in",
+    title: "AI Video Editor",
+    description: "AI-powered video editing toolkit with timeline automation.",
+    techs: ["typescript", "nodejs"],
+    link: "https://github.com/kaizen403/ai_video_editor",
   },
   {
-    title: "CupidMatch",
-    techs: ["Nextjs14", "Next auth", "prismaorm", "Typescript", "Tailwind", "React"],
-    link: "https://cupid-match.vercel.app/",
+    title: "AI Interviewer VITAP",
+    description:
+      "AI interview platform for VITAP with real-time feedback and analytics.",
+    techs: ["typescript", "nextjs", "openai"],
+    link: "https://github.com/kaizen403/AI_Interviewer_vitap",
+  },
+  {
+    title: "OEM Telemetry AI",
+    description:
+      "Agentic AI workflow and data intelligence solutions for OEM telemetry devices.",
+    techs: ["typescript", "langchain", "nodejs"],
+    link: "https://github.com/kaizen403/OEM_telemetry_ai",
+  },
+  {
+    title: "Matrimony AI",
+    description:
+      "AI-powered matrimony matching platform with preference analysis.",
+    techs: ["typescript", "openai", "nodejs"],
+    link: "https://github.com/kaizen403/matrimony_ai",
   },
   {
     title: "KazAI",
-    techs: ["Nextjs14", "Typescript", "Tailwind", "React", "Shadcnui"],
-    link: "https://ai-exam-problem-solver.vercel.app/",
+    description:
+      "Upload a problem, watch AI solve it. Fast, easy, student-approved.",
+    techs: ["nextjs", "typescript", "react", "shadcn/ui"],
+    link: "https://github.com/kaizen403/Kaz_AI",
   },
   {
-    title: "Image_Optimization_aws",
-    techs: ["aws_s3", "aws_lambda", "nodejs", "ts"],
-    link: "https://github.com/kaizen403/image-optimization-aws/tree/main",
+    title: "LangGraph Agent",
+    description: "AI agent with tool bindings using LangGraph.",
+    techs: ["typescript", "langgraph", "langchain"],
+    link: "https://github.com/kaizen403/langgraph-agent",
   },
   {
-    title: "webRTC_P2P",
-    techs: ["webRTC", "Nodejs", "js", "ts", "React"],
-    link: "https://github.com/kaizen403/webrtc-omegle-p2p/tree/main",
-  },
-  {
-    title: "Secure Scan",
-    techs: ["Python", "php", "Mysql", "Javascript"],
-    link: "https://github.com/ryuux21/Secure-scan",
-    contributors: "contributers: @brainiac",
-  },
-  {
-    title: "3D-AI-Japanese-Teacher",
-    techs: ["Nextjs14", "Three.js", "Typescript", "openai", "azure"],
+    title: "3D AI Japanese Teacher",
+    description:
+      "3D AI-powered Japanese language teacher using Three.js and speech synthesis.",
+    techs: ["nextjs", "three.js", "openai", "azure", "typescript"],
     link: "https://github.com/kaizen403/3D-AI-japanese-teacher-three.js",
   },
   {
-    title: "Old Portfolio",
-    techs: ["Javascript", "CSS"],
-    link: "https://redadmin.pages.dev/",
+    title: "AI Sales Agent",
+    description: "Conversational AI sales agent.",
+    techs: ["javascript", "nodejs", "openai"],
+    link: "https://github.com/kaizen403/ai_sales_agent",
   },
   {
-    title: "Netts Backend",
-    techs: ["nodejs", "express", "ts", "prisma", "pg"],
-    link: "https://www.netts.in/",
+    title: "Voice Agent",
+    description: "Voice-based AI agent.",
+    techs: ["javascript", "nodejs"],
+    link: "https://github.com/kaizen403/voice_agent",
   },
   {
-    title: "Fundline",
-    techs: ["nextjs", "ts"],
-    link: "https://fundline.in/",
+    title: "WP AI SEO Automation",
+    description: "AI-driven SEO automation for WordPress sites.",
+    techs: ["javascript", "nodejs", "wordpress"],
+    link: "https://github.com/kaizen403/wp_ai_seo_automation",
+  },
+
+  /* ── Search & Data ─────────────────────────────────── */
+  {
+    title: "Realtime Semantic Search",
+    description: "Low-latency semantic retrieval with realtime index updates.",
+    techs: ["typescript", "nodejs", "embeddings"],
+    link: "https://github.com/kaizen403/realtime_semantic_search",
+  },
+  {
+    title: "Semantic Search",
+    description:
+      "Semantic search using LangChain, Mistral embeddings, and Pinecone.",
+    techs: ["javascript", "langchain", "mistral", "pinecone"],
+    link: "https://github.com/kaizen403/Semantic_search",
+  },
+
+  /* ── Security / CTF ────────────────────────────────── */
+  {
+    title: "Bluerock",
+    description: "Insecure MCP server — ParrotCTFs challenge.",
+    techs: ["typescript", "mcp", "langchain", "groq", "nextjs"],
+    link: "https://github.com/kaizen403/bluerock",
+  },
+  {
+    title: "Hacking Labs VITAP",
+    description: "Security lab environment for VITAP students.",
+    techs: ["javascript", "nodejs", "docker"],
+    link: "https://github.com/kaizen403/hacking_labs_vitap",
+  },
+  {
+    title: "DPDPA Compliant",
+    description: "DPDP Act compliance checker and consent management system.",
+    techs: ["typescript", "nodejs"],
+    link: "https://github.com/kaizen403/dpdpa_compliant",
+  },
+  {
+    title: "Insecure IDOR API",
+    description:
+      "Demonstration of an IDOR access control vulnerability in a REST API.",
+    techs: ["javascript", "express", "prisma", "postgres"],
+    link: "https://github.com/kaizen403/Insecure_IDOR_API",
   },
   {
     title: "Veriface",
-    techs: ["aws_rekognition", "2fa", "nodejs", "ts"],
+    description:
+      "AWS Rekognition-based face verification and XXE insecure CTF challenge.",
+    techs: ["python", "aws rekognition", "nodejs"],
     link: "https://github.com/kaizen403/Veriface",
   },
   {
-    title: "Vitopia Website BE",
-    techs: ["nodejs", "express", "pg"],
-    link: "https://vitopia.vitap.ac.in/",
+    title: "Face Login",
+    description: "Face comparison authentication using AWS Rekognition.",
+    techs: ["javascript", "aws rekognition", "nodejs"],
+    link: "https://github.com/kaizen403/face-login",
+  },
+  {
+    title: "Secure Scan",
+    description: "Web security scanner.",
+    techs: ["python", "php", "mysql", "javascript"],
+    link: "https://github.com/ryuux21/Secure-scan",
+    contributors: "w/ @brainiac",
+  },
+
+  /* ── Backend / Infra ───────────────────────────────── */
+  {
+    title: "AlphaSecurity gRPC Server",
+    description:
+      "gRPC backend for cybersecurity vulnerability report management. Faster than REST or GraphQL.",
+    techs: ["typescript", "grpc", "prisma", "postgres", "protobufs"],
+    link: "https://github.com/kaizen403/alphasecurity_GRPC_Server",
+  },
+  {
+    title: "gRPC WebRTC Server",
+    description:
+      "WebRTC over gRPC protocol — a novel implementation combining both protocols.",
+    techs: ["typescript", "grpc", "webrtc", "nodejs", "react"],
+    link: "https://github.com/kaizen403/grpc_webrtc_server",
+  },
+  {
+    title: "Code Execution Engine",
+    description:
+      "Run code securely inside Docker containers. Supports Node.js, Python, and more.",
+    techs: ["typescript", "nextjs", "socket.io", "docker", "aws s3"],
+    link: "https://github.com/kaizen403/CodeExecutionEngine",
+  },
+  {
+    title: "Image Optimization AWS",
+    description:
+      "On-the-fly image optimization through search query using AWS S3 and Lambda.",
+    techs: ["typescript", "aws s3", "aws lambda", "nodejs"],
+    link: "https://github.com/kaizen403/image-optimization-aws",
+  },
+  {
+    title: "Vitopia Scanner",
+    description:
+      "Anti-fraud entry scanner using Redis queue locking and Convex as source of truth.",
+    techs: ["typescript", "redis", "convex"],
+    link: "https://github.com/kaizen403/vitopia_scanner",
+  },
+  {
+    title: "Netts Backend",
+    description: "Backend services for the Netts platform.",
+    techs: ["javascript", "express", "nodejs"],
+    link: "https://github.com/kaizen403/netts-backend",
+  },
+  {
+    title: "Vitopia Website Backend",
+    description: "Backend for the VITAP Vitopia fest website.",
+    techs: ["javascript", "express", "nodejs"],
+    link: "https://github.com/kaizen403/Vitap-vitopia",
+  },
+  {
+    title: "OpenLinear",
+    description: "Linear-style project management for OpenCode.",
+    techs: ["javascript", "nodejs"],
+    link: "https://github.com/kaizen403/openlinear",
+  },
+
+  /* ── Full-Stack Apps ───────────────────────────────── */
+  {
+    title: "Pantrypal",
+    description:
+      "Marketplace for hostel residents to buy, sell, or exchange food and essentials.",
+    techs: [
+      "nextjs",
+      "lucia auth",
+      "prisma",
+      "typescript",
+      "shadcn/ui",
+      "uploadthing",
+    ],
+    link: "https://github.com/kaizen403/Pantrypal",
+  },
+  {
+    title: "CupidMatch",
+    description:
+      "Dating app for college students with an innovative matching algorithm.",
+    techs: ["nextjs", "next-auth", "prisma", "typescript", "react"],
+    link: "https://github.com/kaizen403/CupidMatch",
+  },
+  {
+    title: "Adonispot",
+    description:
+      "Platform for introspective leaders to engage in meaningful connections and personal growth.",
+    techs: ["typescript", "nextjs", "react"],
+    link: "https://github.com/kaizen403/Adonispot",
+  },
+  {
+    title: "Cryptoscope",
+    description: "Crypto portfolio tracking and analysis platform.",
+    techs: ["typescript", "nextjs", "react"],
+    link: "https://github.com/kaizen403/cryptoscope",
+  },
+  {
+    title: "Crypto Portfolio Tracker",
+    description: "Real-time cryptocurrency portfolio tracker.",
+    techs: ["javascript", "nodejs"],
+    link: "https://github.com/kaizen403/crypto-portfolio-tracker",
+  },
+  {
+    title: "DevFlow",
+    description: "Large-scale Next.js 14 developer platform.",
+    techs: ["nextjs", "typescript", "react"],
+    link: "https://github.com/kaizen403/devflow",
+  },
+  {
+    title: "The CodePad",
+    description: "Collaborative code editor — CodePad alternative.",
+    techs: ["typescript", "react", "nodejs"],
+    link: "https://github.com/kaizen403/thecodepad",
+  },
+  {
+    title: "Web Builder",
+    description: "Visual web page builder.",
+    techs: ["typescript", "react"],
+    link: "https://github.com/kaizen403/web-builder",
+  },
+  {
+    title: "MunchMates",
+    description: "Food sharing and meal coordination app.",
+    techs: ["typescript", "nextjs", "react"],
+    link: "https://github.com/kaizen403/munchmates",
+  },
+
+  /* ── Networking / WebRTC ───────────────────────────── */
+  {
+    title: "WebRTC P2P",
+    description: "Peer-to-peer video and audio streaming using WebRTC.",
+    techs: ["typescript", "webrtc", "nodejs", "react"],
+    link: "https://github.com/kaizen403/webrtc-omegle-p2p",
+  },
+  {
+    title: "P2P WebRTC (Go)",
+    description: "P2P WebRTC implementation in Go.",
+    techs: ["go", "webrtc"],
+    link: "https://github.com/kaizen403/p2p-webrtc",
+  },
+
+  /* ── Tools / Utilities ─────────────────────────────── */
+  {
+    title: "Code Extractor",
+    description:
+      "Extracts your entire codebase into a single text file for LLM context.",
+    techs: ["javascript", "nodejs"],
+    link: "https://github.com/kaizen403/codeExtractor",
   },
 ];
 

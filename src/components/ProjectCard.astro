@@ -3,7 +3,7 @@ import type { Project } from "@/data/projects";
 
 type Props = Project;
 
-const { title, techs, contributors, link, isComingSoon } = Astro.props;
+const { title, techs, contributors, link, description, isPinned, isComingSoon } = Astro.props;
 
 const formatTechs = (values: string[]) =>
   values.toString().replaceAll(",", " • ");
@@ -27,15 +27,30 @@ const formatTechs = (values: string[]) =>
   {
     !isComingSoon && (
       <a
-        class="group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border border-neutral-700 p-4 transition-all duration-300 hover:-translate-y-2 hover:border-neutral-400 md:flex-row md:items-center"
+        class:list={[
+          "group flex w-full cursor-pointer flex-col justify-between gap-2 rounded-md border p-4 transition-all duration-300 hover:-translate-y-2 md:flex-row md:items-center",
+          isPinned
+            ? "border-neutral-600 hover:border-neutral-300"
+            : "border-neutral-700 hover:border-neutral-400",
+        ]}
         href={link}
         target="_blank"
         rel="noreferrer"
       >
-        <div class="flex flex-col gap-4 md:flex-row md:items-center">
-          <p class="text-neutral-100">{title}</p>
-          <p>{formatTechs(techs)}</p>
-          <p>{contributors}</p>
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-2">
+            {isPinned && (
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="shrink-0 text-neutral-400">
+                <path d="M4.456.734a1.75 1.75 0 0 1 2.826.504l.613 1.327a3.08 3.08 0 0 0 2.084 1.707l2.454.584c1.332.317 1.8 1.972.832 2.94L11.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06L10 11.06l-2.204 2.205c-.968.968-2.623.5-2.94-.832l-.584-2.454a3.08 3.08 0 0 0-1.707-2.084l-1.327-.613a1.75 1.75 0 0 1-.504-2.826L4.456.734Z" fill="currentColor"/>
+              </svg>
+            )}
+            <p class="text-neutral-100">{title}</p>
+          </div>
+          {description && (
+            <p class="text-sm text-neutral-500 line-clamp-1">{description}</p>
+          )}
+          <p class="text-sm mt-1">{formatTechs(techs)}</p>
+          {contributors && <p class="text-sm">{contributors}</p>}
         </div>
 
         <svg
@@ -43,7 +58,7 @@ const formatTechs = (values: string[]) =>
           height="18"
           viewBox="0 0 18 18"
           fill="none"
-          class="transition-all duration-300 group-hover:translate-x-1"
+          class="shrink-0 transition-all duration-300 group-hover:translate-x-1"
         >
           <path
             d="M5.25 12.75L12.75 5.25"

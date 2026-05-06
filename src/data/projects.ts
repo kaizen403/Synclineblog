@@ -11,6 +11,20 @@ export type Project = {
 const projects: Project[] = [
   /* ── Pinned ────────────────────────────────────────── */
   {
+    title: "Automated Warranty Claims",
+    description: "AI-powered warranty claim adjudication system for OEMs — explainable decisioning layer over existing warranty/service systems.",
+    techs: ["typescript", "langchain", "nodejs", "prisma", "postgres"],
+    link: "https://github.com/kaizen403/Automated-Warranty-Claims",
+    isPinned: true,
+  },
+  {
+    title: "Accent AI",
+    description: "AI accent coaching and speech analysis platform.",
+    techs: ["typescript", "nextjs", "openai", "react"],
+    link: "https://github.com/kaizen403/accent-ai",
+    isPinned: true,
+  },
+  {
     title: "Postgres MCP Server",
     description:
       "MCP server for AI tooling with secure query execution, observability, and workflow integration.",
@@ -360,6 +374,54 @@ const projects: Project[] = [
   },
 
   /* ── Tools / Utilities ─────────────────────────────── */
+  {
+    title: "Cursor for Investors",
+    description: "AI-assisted investor research and deal-flow tooling — a Cursor-style IDE experience for VCs.",
+    techs: ["typescript", "nextjs", "openai"],
+    link: "https://github.com/kaizen403/cursor-for-investors",
+  },
+  {
+    title: "Vahaan Watch",
+    description: "Vehicle monitoring and telematics intelligence platform.",
+    techs: ["typescript", "nodejs"],
+    link: "https://github.com/kaizen403/vahaan-watch",
+  },
+  {
+    title: "VC IDE",
+    description: "IDE-style interface for venture capital research and portfolio management.",
+    techs: ["typescript", "react", "nextjs"],
+    link: "https://github.com/kaizen403/vc-ide",
+  },
+  {
+    title: "Penstrike AI",
+    description: "AI-assisted penetration testing framework with automated recon and attack surface analysis.",
+    techs: ["python", "nodejs", "langchain"],
+    link: "https://github.com/kaizen403/penstrike_ai",
+  },
+  {
+    title: "Fleetora Landing",
+    description: "Landing page for Fleetora — fleet management and OEM warranty AI platform.",
+    techs: ["nextjs", "typescript", "react"],
+    link: "https://github.com/kaizen403/fleetora-landing",
+  },
+  {
+    title: "OEM Service Unit",
+    description: "Modular service unit management system for OEM aftersales and warranty operations.",
+    techs: ["typescript", "nodejs"],
+    link: "https://github.com/kaizen403/OEM_service_unit",
+  },
+  {
+    title: "Secured Gov DB",
+    description: "Hardened government database API with access control and audit logging.",
+    techs: ["typescript", "nodejs", "postgres"],
+    link: "https://github.com/kaizen403/secured_gov_db",
+  },
+  {
+    title: "ReAct AI Agent",
+    description: "ReAct (Reason + Act) AI agent implementation with tool use and chain-of-thought.",
+    techs: ["typescript", "langchain", "nodejs"],
+    link: "https://github.com/kaizen403/ReAct-Ai-Agent",
+  },
   {
     title: "Code Extractor",
     description:

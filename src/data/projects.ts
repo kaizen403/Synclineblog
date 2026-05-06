@@ -11,17 +11,28 @@ export type Project = {
 const projects: Project[] = [
   /* ── Pinned ────────────────────────────────────────── */
   {
-    title: "Automated Warranty Claims",
-    description: "AI-powered warranty claim adjudication system for OEMs — explainable decisioning layer over existing warranty/service systems.",
-    techs: ["typescript", "langchain", "nodejs", "prisma", "postgres"],
-    link: "https://github.com/kaizen403/Automated-Warranty-Claims",
+    title: "OpenLinear",
+    description: "Linear-style project management for OpenCode.",
+    techs: ["javascript", "nodejs"],
+    link: "https://github.com/kaizen403/openlinear",
+    isPinned: true,
   },
   {
-    title: "Accent AI",
-    description: "AI accent coaching and speech analysis platform.",
-    techs: ["typescript", "nextjs", "openai", "react"],
-    link: "https://github.com/kaizen403/accent-ai",
+    title: "Vahaan Watch",
+    description: "Vehicle monitoring and telematics intelligence platform.",
+    techs: ["typescript", "nodejs"],
+    link: "https://github.com/kaizen403/vahaan-watch",
+    isPinned: true,
   },
+  {
+    title: "OEM Telemetry AI",
+    description:
+      "Agentic AI workflow and data intelligence solutions for OEM telemetry devices.",
+    techs: ["typescript", "langchain", "nodejs"],
+    link: "https://github.com/kaizen403/OEM_telemetry_ai",
+    isPinned: true,
+  },
+
   {
     title: "Postgres MCP Server",
     description:
@@ -81,6 +92,18 @@ const projects: Project[] = [
 
   /* ── AI / ML ───────────────────────────────────────── */
   {
+    title: "Automated Warranty Claims",
+    description: "AI-powered warranty claim adjudication system for OEMs — explainable decisioning layer over existing warranty/service systems.",
+    techs: ["typescript", "langchain", "nodejs", "prisma", "postgres"],
+    link: "https://github.com/kaizen403/Automated-Warranty-Claims",
+  },
+  {
+    title: "Accent AI",
+    description: "AI accent coaching and speech analysis platform.",
+    techs: ["typescript", "nextjs", "openai", "react"],
+    link: "https://github.com/kaizen403/accent-ai",
+  },
+  {
     title: "ExAI",
     description:
       "Bringing memories to life using LangGraph advanced RAG model with DeepSeek.",
@@ -121,14 +144,7 @@ const projects: Project[] = [
     techs: ["typescript", "nextjs", "openai"],
     link: "https://github.com/kaizen403/AI_Interviewer_vitap",
   },
-  {
-    title: "OEM Telemetry AI",
-    description:
-      "Agentic AI workflow and data intelligence solutions for OEM telemetry devices.",
-    techs: ["typescript", "langchain", "nodejs"],
-    link: "https://github.com/kaizen403/OEM_telemetry_ai",
-    isPinned: true,
-  },
+
   {
     title: "Matrimony AI",
     description:
@@ -285,13 +301,6 @@ const projects: Project[] = [
     techs: ["javascript", "express", "nodejs"],
     link: "https://github.com/kaizen403/Vitap-vitopia",
   },
-  {
-    title: "OpenLinear",
-    description: "Linear-style project management for OpenCode.",
-    techs: ["javascript", "nodejs"],
-    link: "https://github.com/kaizen403/openlinear",
-    isPinned: true,
-  },
 
   /* ── Full-Stack Apps ───────────────────────────────── */
   {
@@ -380,13 +389,7 @@ const projects: Project[] = [
     techs: ["typescript", "nextjs", "openai"],
     link: "https://github.com/kaizen403/cursor-for-investors",
   },
-  {
-    title: "Vahaan Watch",
-    description: "Vehicle monitoring and telematics intelligence platform.",
-    techs: ["typescript", "nodejs"],
-    link: "https://github.com/kaizen403/vahaan-watch",
-    isPinned: true,
-  },
+
   {
     title: "VC IDE",
     description: "IDE-style interface for venture capital research and portfolio management.",

@@ -15,14 +15,12 @@ const projects: Project[] = [
     description: "AI-powered warranty claim adjudication system for OEMs — explainable decisioning layer over existing warranty/service systems.",
     techs: ["typescript", "langchain", "nodejs", "prisma", "postgres"],
     link: "https://github.com/kaizen403/Automated-Warranty-Claims",
-    isPinned: true,
   },
   {
     title: "Accent AI",
     description: "AI accent coaching and speech analysis platform.",
     techs: ["typescript", "nextjs", "openai", "react"],
     link: "https://github.com/kaizen403/accent-ai",
-    isPinned: true,
   },
   {
     title: "Postgres MCP Server",
@@ -129,6 +127,7 @@ const projects: Project[] = [
       "Agentic AI workflow and data intelligence solutions for OEM telemetry devices.",
     techs: ["typescript", "langchain", "nodejs"],
     link: "https://github.com/kaizen403/OEM_telemetry_ai",
+    isPinned: true,
   },
   {
     title: "Matrimony AI",
@@ -291,6 +290,7 @@ const projects: Project[] = [
     description: "Linear-style project management for OpenCode.",
     techs: ["javascript", "nodejs"],
     link: "https://github.com/kaizen403/openlinear",
+    isPinned: true,
   },
 
   /* ── Full-Stack Apps ───────────────────────────────── */
@@ -385,6 +385,7 @@ const projects: Project[] = [
     description: "Vehicle monitoring and telematics intelligence platform.",
     techs: ["typescript", "nodejs"],
     link: "https://github.com/kaizen403/vahaan-watch",
+    isPinned: true,
   },
   {
     title: "VC IDE",

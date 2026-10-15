@@ -8,6 +8,12 @@ import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 import GitHubContributions from "@/components/GitHubContributions.astro";
 import presentation from "@/data/presentation";
 import projects from "@/data/projects";
+import PostCard from "@/components/PostCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("posts", ({ data }) => data.isPublish && !data.isDraft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout title="Portfolio | Homepage">
@@ -30,6 +36,22 @@ import projects from "@/data/projects";
       set:html={convertAsteriskToStrongTag(presentation.description)}
     />
     <SocialLinks />
+    </article>
+
+    <article class="flex flex-col gap-7">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-xl tracking-wide font-lexend text-neutral-100">Latest on Blog</h3>
+      </header>
+      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            publishedAt={post.data.publishedAt}
+            slug={post.slug}
+          />
+        ))}
+      </section>
     </article>
 
     <!-- Open Source Contributions -->

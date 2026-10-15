@@ -16,7 +16,7 @@ const presentation: Presentation = {
   title: "Hi, I’m Rishi  ",
   work: "",
   description:
-    "Just a 20-year old Powerlifter who is passionate about technology and product development.",
+    "Just a 21-year old Powerlifter who is passionate about technology and product development.",
   socials: [
     {
       label: "Instagram",

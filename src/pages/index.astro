@@ -38,22 +38,6 @@ const posts = (await getCollection("posts", ({ data }) => data.isPublish && !dat
     <SocialLinks />
     </article>
 
-    <article class="flex flex-col gap-7">
-      <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-xl tracking-wide font-lexend text-neutral-100">Latest on Blog</h3>
-      </header>
-      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
-        {posts.map((post) => (
-          <PostCard
-            title={post.data.title}
-            description={post.data.description}
-            publishedAt={post.data.publishedAt}
-            slug={post.slug}
-          />
-        ))}
-      </section>
-    </article>
-
     <!-- Open Source Contributions -->
     <article class="flex flex-col gap-4">
       <h3 class="text-sm font-lexend tracking-widest text-neutral-600 uppercase">Open Source Contributions</h3>
@@ -99,6 +83,22 @@ const posts = (await getCollection("posts", ({ data }) => data.isPublish && !dat
           <span class="text-[10px] text-neutral-700 font-ubuntu whitespace-nowrap">& more</span>
         </span>
       </div>
+    </article>
+
+    <article class="flex flex-col gap-7">
+      <header class="flex w-full flex-row justify-between gap-2">
+        <h3 class="text-xl tracking-wide font-lexend text-neutral-100">Latest on Blog</h3>
+      </header>
+      <section class="flex flex-col gap-4 md:flex-row md:flex-wrap">
+        {posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            description={post.data.description}
+            publishedAt={post.data.publishedAt}
+            slug={post.slug}
+          />
+        ))}
+      </section>
     </article>
 
     <article class="flex flex-col gap-7">

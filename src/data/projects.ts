@@ -11,16 +11,34 @@ export type Project = {
 const projects: Project[] = [
   /* ── Pinned ────────────────────────────────────────── */
   {
+    title: "Accelute",
+    description:
+      "Production multimodal AI tutoring platform synchronizing streamed LLM narration, neural TTS and stroke-level handwriting synthesis, with a deterministic scene-graph engine that compiles and verifies every diagram before render.",
+    techs: [
+      "typescript",
+      "nextjs",
+      "konva",
+      "turborepo",
+      "postgres",
+      "auth.js",
+      "websockets",
+    ],
+    link: "https://github.com/kaizen403/heytutor",
+    isPinned: true,
+  },
+  {
     title: "OpenLinear",
-    description: "Linear-style project management for OpenCode.",
-    techs: ["javascript", "nodejs"],
+    description:
+      "Tauri desktop app where kanban tasks are executed by AI coding agents and shipped as GitHub pull requests.",
+    techs: ["typescript", "tauri", "nextjs", "express", "prisma", "postgres"],
     link: "https://github.com/kaizen403/openlinear",
     isPinned: true,
   },
   {
     title: "Vahaan Watch",
-    description: "Vehicle monitoring and telematics intelligence platform.",
-    techs: ["typescript", "nodejs"],
+    description:
+      "Real time ANPR vehicle surveillance platform with watchlist alerts, an admin portal and edge workstation agents.",
+    techs: ["typescript", "nextjs", "hono", "postgres", "docker"],
     link: "https://github.com/kaizen403/vahaan-watch",
     isPinned: true,
   },
@@ -30,6 +48,38 @@ const projects: Project[] = [
       "Agentic AI workflow and data intelligence solutions for OEM telemetry devices.",
     techs: ["typescript", "langchain", "nodejs"],
     link: "https://github.com/kaizen403/OEM_telemetry_ai",
+    isPinned: true,
+  },
+  {
+    title: "AI Capstone Interviewer",
+    description:
+      "Voice agent that reviews student capstone presentations live, built on LiveKit with a LangGraph interview flow.",
+    techs: [
+      "typescript",
+      "nextjs",
+      "livekit",
+      "langgraph",
+      "elevenlabs",
+      "prisma",
+      "postgres",
+    ],
+    link: "https://github.com/kaizen403/AI_Interviewer_vitap",
+    isPinned: true,
+  },
+  {
+    title: "Hacking Labs VITAP",
+    description:
+      "CTF platform where students spin up isolated vulnerable lab containers, exploit them and submit flags.",
+    techs: ["typescript", "nextjs", "express", "prisma", "postgres", "docker"],
+    link: "https://github.com/kaizen403/hacking_labs_vitap",
+    isPinned: true,
+  },
+  {
+    title: "CtrlAgent",
+    description:
+      "Browser control framework for AI agents with task orchestration, stateful sessions, and safety guardrails.",
+    techs: ["typescript", "playwright", "cdp", "mcp", "nodejs"],
+    link: "https://github.com/kaizen403/CtrlAgent",
     isPinned: true,
   },
 
@@ -74,14 +124,6 @@ const projects: Project[] = [
     isPinned: true,
   },
   {
-    title: "AI Browser Control v2",
-    description:
-      "Browser control framework for AI agents with task orchestration, stateful sessions, and safety guardrails.",
-    techs: ["typescript", "puppeteer", "langchain", "nodejs"],
-    link: "https://github.com/kaizen403/ai_browser_control_v2",
-    isPinned: true,
-  },
-  {
     title: "AI Web Pentester",
     description:
       "AI pentesting toolkit with structured recon, vulnerability workflows, and automated reporting.",
@@ -92,6 +134,21 @@ const projects: Project[] = [
 
   /* ── AI / ML ───────────────────────────────────────── */
   {
+    title: "Accelute QA Agent",
+    description:
+      "GitHub PR QA agent that tests preview deployments in a real browser and posts a report with a demo video.",
+    techs: [
+      "typescript",
+      "express",
+      "nextjs",
+      "playwright",
+      "langchain",
+      "prisma",
+      "postgres",
+    ],
+    link: "https://github.com/kaizen403/accelute",
+  },
+  {
     title: "Automated Warranty Claims",
     description: "AI-powered warranty claim adjudication system for OEMs — explainable decisioning layer over existing warranty/service systems.",
     techs: ["typescript", "langchain", "nodejs", "prisma", "postgres"],
@@ -99,8 +156,9 @@ const projects: Project[] = [
   },
   {
     title: "Accent AI",
-    description: "AI accent coaching and speech analysis platform.",
-    techs: ["typescript", "nextjs", "openai", "react"],
+    description:
+      "Desktop app that converts your speech into a British, American, Australian or Indian accent.",
+    techs: ["typescript", "tauri", "nextjs", "elevenlabs"],
     link: "https://github.com/kaizen403/accent-ai",
   },
   {
@@ -137,14 +195,6 @@ const projects: Project[] = [
     techs: ["typescript", "nodejs"],
     link: "https://github.com/kaizen403/ai_video_editor",
   },
-  {
-    title: "AI Interviewer VITAP",
-    description:
-      "AI interview platform for VITAP with real-time feedback and analytics.",
-    techs: ["typescript", "nextjs", "openai"],
-    link: "https://github.com/kaizen403/AI_Interviewer_vitap",
-  },
-
   {
     title: "Matrimony AI",
     description:
@@ -212,12 +262,6 @@ const projects: Project[] = [
     description: "Insecure MCP server — ParrotCTFs challenge.",
     techs: ["typescript", "mcp", "langchain", "groq", "nextjs"],
     link: "https://github.com/kaizen403/bluerock",
-  },
-  {
-    title: "Hacking Labs VITAP",
-    description: "Security lab environment for VITAP students.",
-    techs: ["javascript", "nodejs", "docker"],
-    link: "https://github.com/kaizen403/hacking_labs_vitap",
   },
   {
     title: "DPDPA Compliant",
@@ -370,6 +414,13 @@ const projects: Project[] = [
 
   /* ── Networking / WebRTC ───────────────────────────── */
   {
+    title: "Omegle VITAP",
+    description:
+      "Anonymous peer to peer video chat for VIT-AP students with an admin dashboard and TURN relay.",
+    techs: ["typescript", "nextjs", "webrtc", "socket.io", "express", "redis"],
+    link: "https://github.com/kaizen403/omegle",
+  },
+  {
     title: "WebRTC P2P",
     description: "Peer-to-peer video and audio streaming using WebRTC.",
     techs: ["typescript", "webrtc", "nodejs", "react"],
@@ -383,6 +434,13 @@ const projects: Project[] = [
   },
 
   /* ── Tools / Utilities ─────────────────────────────── */
+  {
+    title: "Archwillow",
+    description:
+      "Low latency speech to text overlay for Hyprland using ElevenLabs realtime transcription.",
+    techs: ["python", "elevenlabs", "wayland"],
+    link: "https://github.com/kaizen403/archwillow",
+  },
   {
     title: "Cursor for Investors",
     description: "AI-assisted investor research and deal-flow tooling — a Cursor-style IDE experience for VCs.",

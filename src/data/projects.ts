@@ -13,7 +13,7 @@ const projects: Project[] = [
   {
     title: "Accelute",
     description:
-      "AI whiteboard tutor that teaches aloud while handwriting and verified diagrams appear in sync, across maths, physics, chemistry and DSA.",
+      "Production multimodal AI tutoring platform synchronizing streamed LLM narration, neural TTS and stroke-level handwriting synthesis, with a deterministic scene-graph engine that compiles and verifies every diagram before render.",
     techs: [
       "typescript",
       "nextjs",

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How I built Accelute | Kaizen</title>
+<meta name="description" content="A case study by Rishi Vhavle (kaizen): how I built Accelute, an AI tutor that teaches on a whiteboard with verified diagrams, handwritten working and a natural voice.">
+<meta property="og:title" content="How I built an AI tutor that teaches like a teacher">
+<meta property="og:description" content="A case study of Accelute by Rishi Vhavle (kaizen).">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://www.rishivhavle.works/accelute/img/01-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<style>
+@font-face { font-family: 'Stack Sans Notch'; src: url('/accelute/fonts/stack-sans-notch.woff2') format('woff2'); font-weight: 100 900; }
+@font-face { font-family: 'Inter'; src: url('/accelute/fonts/inter-400.woff') format('woff'); font-weight: 400; }
+@font-face { font-family: 'Inter'; src: url('/accelute/fonts/inter-500.woff') format('woff'); font-weight: 500; }
+@font-face { font-family: 'Inter'; src: url('/accelute/fonts/inter-600.woff') format('woff'); font-weight: 600; }
+@font-face { font-family: 'Inter'; src: url('/accelute/fonts/inter-700.woff') format('woff'); font-weight: 700; }
+@font-face { font-family: 'Caveat'; src: url('/accelute/fonts/caveat-600.woff') format('woff'); font-weight: 400 600; }
+@font-face { font-family: 'Caveat'; src: url('/accelute/fonts/caveat-700.woff') format('woff'); font-weight: 700; }
+
+:root {
+  --deep: #06121C;
+  --navy: #0A1B27;
+  --frost: #F0F5F7;
+  --ice: #7FC4E2;
+  --sky: #59AFD4;
+  --sky-ink: #1F6F9E;
+  --cream: #F6E3C3;
+  --ink: #1B2734;
+  --body: #3A4654;
+  --muted: #6B7785;
+  --rule: #E3E6E8;
+  --paper: #FFFFFF;
+  --tint: #F3F8FB;
+}
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-variant-ligatures: none; font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0, 'kern' 0; font-kerning: none; text-rendering: optimizeSpeed; font-family: 'Inter', system-ui, sans-serif; color: var(--body); font-size: 10.4pt; line-height: 1.6; -webkit-font-smoothing: antialiased; background: var(--paper); }
+
+/* ---------- cover ---------- */
+.cover {
+  page: cover; position: relative; width: 210mm; height: 297mm; overflow: hidden; color: var(--frost);
+  background:
+    radial-gradient(70% 45% at 50% -6%, rgba(89, 175, 212, 0.26) 0%, rgba(89, 175, 212, 0.07) 45%, transparent 72%),
+    radial-gradient(55% 40% at 100% 100%, rgba(95, 164, 249, 0.12) 0%, transparent 70%),
+    linear-gradient(180deg, #0B1E2B 0%, var(--deep) 100%);
+  break-after: page;
+}
+.cover .inner { position: absolute; inset: 0; padding: 18mm 19mm 17mm; display: flex; flex-direction: column; }
+.brand { display: flex; align-items: center; gap: 9px; }
+.brand svg { width: 26px; height: 26px; }
+.brand span { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 19pt; letter-spacing: -0.01em; color: var(--frost); }
+.kicker { font-family: 'Inter'; font-weight: 600; font-size: 8.6pt; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ice); }
+.cover .kicker { margin-top: 30mm; }
+.hand-k { font-family: 'Caveat', cursive; font-weight: 600; font-size: 19pt; letter-spacing: 0; text-transform: none; color: var(--ice); }
+.cover h1 { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 40pt; line-height: 1.02; letter-spacing: -0.025em; margin-top: 5mm; }
+.ice { color: #7FC4E2; }
+.cover .lede { margin-top: 6mm; font-size: 13.5pt; line-height: 1.5; color: rgba(240, 245, 247, 0.74); max-width: 150mm; }
+.cover .byline { margin-top: 7mm; display: flex; gap: 10px; align-items: center; font-size: 10pt; color: rgba(240, 245, 247, 0.62); }
+.cover .byline b { color: var(--frost); font-weight: 600; }
+.cover .byline i { width: 4px; height: 4px; border-radius: 50%; background: var(--ice); display: inline-block; opacity: 0.8; }
+.stats { margin-top: 9mm; margin-bottom: 9mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+.stat { border: 1px solid rgba(127, 196, 226, 0.20); background: rgba(10, 27, 39, 0.55); border-radius: 12px; padding: 4mm 4.5mm; }
+.stat .n { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 19pt; letter-spacing: -0.02em; color: var(--frost); line-height: 1.1; }
+.stat .l { font-size: 8.4pt; color: rgba(240, 245, 247, 0.6); margin-top: 1.5mm; line-height: 1.35; }
+.points { margin-top: 10mm; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(127, 196, 226, 0.16); border-bottom: 1px solid rgba(127, 196, 226, 0.16); }
+.points div { padding: 4.5mm 5mm 4.5mm 0; }
+.points div + div { padding-left: 5mm; border-left: 1px solid rgba(127, 196, 226, 0.16); }
+.points b { display: block; font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 12pt; color: var(--frost); margin-bottom: 1.2mm; }
+.points span { display: block; font-size: 9pt; line-height: 1.45; color: rgba(240, 245, 247, 0.6); }
+.cover .shot { margin-top: auto; border-radius: 14px; overflow: hidden; border: 1px solid rgba(127, 196, 226, 0.22); }
+.cover .shot img { display: block; width: 100%; }
+
+.top { display: flex; justify-content: space-between; align-items: flex-start; }
+.links { text-align: right; margin-top: -1mm; }
+.links .by { font-family: 'Caveat'; font-weight: 600; font-size: 15pt; line-height: 1; color: rgba(240, 245, 247, 0.6); margin-bottom: 2mm; }
+.links .by b { font-weight: 700; color: var(--frost); }
+.links .row { display: flex; justify-content: flex-end; gap: 4.5mm; }
+.links a { display: inline-flex; align-items: center; gap: 2mm; text-decoration: none; color: rgba(240, 245, 247, 0.86); font-size: 9.2pt; font-weight: 500; }
+.links a svg, .links a img { width: 4mm; height: 4mm; flex: none; }
+
+/* ---------- interior ---------- */
+section { margin-bottom: 9mm; }
+.keep { break-inside: avoid; }
+.sec-kicker { break-after: avoid; font-family: 'Caveat', cursive; font-weight: 600; font-size: 17pt; line-height: 1.1; color: var(--sky-ink); margin-bottom: 0.5mm; }
+h2 { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 22pt; line-height: 1.12; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 4mm; break-after: avoid; }
+h3 { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 12.5pt; letter-spacing: -0.01em; color: var(--ink); margin: 5mm 0 2mm; break-after: avoid; }
+p { margin-bottom: 3mm; }
+p.lead { font-size: 12pt; line-height: 1.55; color: var(--ink); }
+strong { color: var(--ink); font-weight: 600; }
+ul.clean { list-style: none; margin: 1mm 0 3mm; }
+ul.clean li { position: relative; padding-left: 6mm; margin-bottom: 2.2mm; }
+ul.clean li::before { content: ''; position: absolute; left: 0.8mm; top: 2.4mm; width: 2.2mm; height: 2.2mm; border-radius: 50%; background: var(--sky); box-shadow: 0 0 0 3px rgba(89, 175, 212, 0.18); }
+
+.callout { border-left: 3px solid var(--sky); background: var(--tint); border-radius: 0 10px 10px 0; padding: 4mm 5mm; margin: 4mm 0 5mm; color: var(--ink); font-size: 11pt; line-height: 1.5; }
+.callout .hand { font-family: 'Caveat'; font-weight: 600; font-size: 15pt; color: var(--sky-ink); display: block; margin-bottom: 0.5mm; }
+
+figure { margin: 4mm auto 5mm; width: 86%; break-inside: avoid; }
+figure img { display: block; width: 100%; border-radius: 12px; border: 1px solid #D9DEE2; break-inside: avoid; }
+figcaption { text-align: left; font-size: 8.6pt; color: var(--muted); margin-top: 2.5mm; line-height: 1.45; }
+figcaption b { color: var(--ink); font-weight: 600; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.pair figure { margin: 0; width: 100%; }
+.pair { margin: 4mm 0 5mm; }
+
+table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 8.9pt; line-height: 1.45; margin: 3mm 0 5mm; break-inside: auto; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+th { background: var(--navy); color: var(--frost); font-weight: 600; text-align: left; padding: 2.6mm 3mm; font-size: 8.4pt; letter-spacing: 0.02em; }
+td { padding: 2mm 3mm; border-top: 1px solid var(--rule); vertical-align: top; color: var(--body); }
+tr { break-inside: avoid; }
+tr:nth-child(even) td { background: #FAFBFC; }
+td:first-child { color: var(--ink); font-weight: 600; }
+td.res { color: var(--sky-ink); font-weight: 600; white-space: nowrap; }
+.num { font-variant-numeric: tabular-nums; }
+.down { color: #1E7A4E; font-weight: 600; }
+
+.diagram { background: linear-gradient(180deg, #0B1E2B 0%, var(--deep) 100%); border-radius: 14px; padding: 4mm 3.5mm 3mm; margin: 4mm auto 3mm; width: 84%; break-inside: avoid; position: relative; overflow: hidden; }
+.diagram svg { position: relative; display: block; width: 100%; }
+
+.closing { margin-top: 8mm; padding-top: 5mm; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; align-items: center; font-size: 9pt; color: var(--muted); }
+.closing .brand span { color: var(--ink); font-size: 13pt; }
+.closing .brand svg { width: 18px; height: 18px; }
+.feature { display: grid; grid-template-columns: 54% 1fr; gap: 6mm; align-items: center; margin: 4mm 0 5mm; break-inside: avoid; }
+.feature img { display: block; width: 100%; border-radius: 10px; border: 1px solid #D9DEE2; }
+.feature.flip img { order: 2; }
+.feature.small { grid-template-columns: 46% 1fr; margin: 3mm 0 4mm; }
+.feature p { font-size: 9.6pt; line-height: 1.55; margin-bottom: 2mm; }
+.f-title { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 12.5pt; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 1.5mm; }
+.endcard { margin-top: 8mm; break-inside: avoid; display: grid; grid-template-columns: 1fr 44%; gap: 6mm; align-items: center; padding: 7mm 7mm; border-radius: 14px; color: var(--frost);
+  background: radial-gradient(70% 90% at 0% 0%, rgba(89, 175, 212, 0.22) 0%, transparent 70%), linear-gradient(180deg, #0B1E2B 0%, var(--deep) 100%); }
+.ec-hand { font-family: 'Caveat', cursive; font-weight: 600; font-size: 15pt; color: var(--ice); line-height: 1; margin-bottom: 2mm; }
+.ec-title { font-family: 'Stack Sans Notch'; font-weight: 600; font-size: 18pt; line-height: 1.15; letter-spacing: -0.02em; color: var(--frost); }
+.ec-title a { color: var(--ice); text-decoration: none; }
+.endcard p { color: rgba(240, 245, 247, 0.68); font-size: 9.6pt; line-height: 1.55; margin: 3mm 0 5mm; }
+.ec-by { font-family: 'Caveat', cursive; font-weight: 600; font-size: 13pt; color: rgba(240, 245, 247, 0.6); margin-bottom: 1.5mm; }
+.ec-by b { font-weight: 700; color: var(--frost); }
+.ec-links { display: flex; gap: 4.5mm; }
+.ec-links a { display: inline-flex; align-items: center; gap: 2mm; text-decoration: none; color: rgba(240, 245, 247, 0.86); font-size: 9.2pt; font-weight: 500; }
+.ec-links a svg, .ec-links a img { width: 4mm; height: 4mm; flex: none; }
+.ec-shot img { display: block; width: 100%; border-radius: 10px; border: 1px solid rgba(127, 196, 226, 0.22); }
+.page-break { break-before: page; }
+
+/* ---------- web ---------- */
+html, body { background: #fff; }
+body { text-rendering: optimizeLegibility; font-kerning: normal; font-feature-settings: normal; font-variant-ligatures: normal; }
+.cover { page: auto; width: auto; height: auto; break-after: auto; }
+.cover .inner { position: relative; inset: auto; max-width: 210mm; margin: 0 auto; padding: 14mm 12mm 16mm; zoom: 1.2; }
+.cover .kicker { margin-top: 22mm; }
+.cover .shot { margin-top: 12mm; }
+main.article { max-width: 172mm; margin: 0 auto; padding: 14mm 8mm 10mm; zoom: 1.22; }
+.dl { color: var(--ice) !important; }
+.back { display: flex; justify-content: space-between; align-items: center; margin: 8mm 0 0; padding-top: 5mm; border-top: 1px solid var(--rule); font-size: 9.4pt; color: var(--muted); }
+.back a { color: var(--sky-ink); text-decoration: none; font-weight: 600; }
+.back a:hover, .links a:hover, .ec-links a:hover { text-decoration: underline; }
+@media (max-width: 760px) {
+  .cover .inner, main.article { zoom: 1; }
+  .cover .inner { padding: 8mm 6mm 10mm; }
+  main.article { padding: 10mm 5.5mm 8mm; }
+  body { font-size: 11.5pt; }
+  .top { flex-direction: column; gap: 6mm; }
+  .links { text-align: left; }
+  .links .row, .ec-links { flex-wrap: wrap; justify-content: flex-start; gap: 3mm 5mm; }
+  .cover .kicker { margin-top: 14mm; }
+  .cover h1 { font-size: 27pt; }
+  .cover h1 br { display: none; }
+  .cover .lede { font-size: 12pt; }
+  .points { grid-template-columns: 1fr; }
+  .points div, .points div + div { padding: 4mm 0; border-left: 0; }
+  .points div + div { border-top: 1px solid rgba(127, 196, 226, 0.16); }
+  h2 { font-size: 18pt; }
+  figure, .diagram { width: 100%; }
+  .feature, .feature.small, .endcard { grid-template-columns: 1fr; }
+  .feature.flip img { order: 0; }
+  .feature p, .endcard p { font-size: 11pt; }
+  figcaption { font-size: 10pt; }
+  table { font-size: 9.6pt; display: block; overflow-x: auto; }
+  td.res { white-space: normal; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="inner">
+    <div class="top">
+    <div class="brand"><svg viewBox="0 0 256 256"><path d="M 144 256 L 40 256 L 144 152 Z M 256 200 L 200 256 L 200 56 L 0 56 L 56 0 L 256 0 Z M 0 216 L 0 112 L 104 112 Z" fill="#F0F5F7"/></svg><span>Accelute</span></div>
+    <div class="links">
+      <div class="by">by <b>Rishi Vhavle</b> aka <b>kaizen</b></div>
+      <div class="row"><a href="https://github.com/kaizen403" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a><a href="https://www.linkedin.com/in/rishi-vhavle-35a166296" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2" fill="#FFFFFF"/><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a><a href="https://accelute.co" target="_blank" rel="noopener"><svg viewBox="0 0 256 256"><path d="M 144 256 L 40 256 L 144 152 Z M 256 200 L 200 256 L 200 56 L 0 56 L 56 0 L 256 0 Z M 0 216 L 0 112 L 104 112 Z" fill="#F0F5F7"/></svg><span>accelute.co</span></a><a class="dl" href="/accelute/Accelute-Case-Study.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg><span>PDF</span></a></div>
+    </div>
+    </div>
+    <div class="kicker hand-k">A case study</div>
+    <h1>How I built an AI tutor <br>that <span class="ice">teaches like a teacher</span></h1>
+    <p class="lede">How I designed and built Accelute: verified diagrams, handwritten working and a natural voice, all in sync.</p>
+    <div class="points">
+      <div><b>Draws the figure</b><span>built from the numbers in your question and checked first</span></div>
+      <div><b>Writes every step</b><span>by hand, on the board, as the voice speaks it</span></div>
+      <div><b>Explains out loud</b><span>in English or Hinglish, at the student's pace</span></div>
+    </div>
+    <div class="shot"><img src="/accelute/img/01-hero.jpg" alt="Accelute lesson in progress: a square pyramid drawn and solved on the board"></div>
+  </div>
+</div>
+
+<main class="article">
+<!-- ================= PROBLEM ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">I. The problem</div>
+  <h2>Students learn STEM at a board, not in a chat window</h2></div>
+  <p>Chat tutors answer STEM questions with walls of text. A projectile question needs a trajectory drawn to scale. A lens question needs rays that actually meet at the image. A LeetCode problem needs the array and the pointers moving step by step. Text cannot do that, and an image model guessing pixels draws figures that look right and are wrong.</p>
+  <p>A wrong diagram is worse than no diagram, because the student trusts it. So I set one rule on day one:</p>
+  <div class="callout"><span class="hand">the rule</span>Every mark on the board is computed and verified, never guessed. The language model may teach. It may not draw.</div>
+  <p>That rule made Accelute much harder to build. It is also the reason it is worth using.</p>
+  <figure>
+    <img src="/accelute/img/03-figure.jpg" alt="A convex lens ray diagram built from the question's numbers">
+    <figcaption><b>A verified figure.</b> The object distance comes from the question; the image distance is solved, not drawn by eye. A figure that fails any check is never shown.</figcaption>
+  </figure>
+</section>
+
+<!-- ================= WHAT I BUILT ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">II. What I built</div>
+  <h2>A lesson that starts on the board within seconds</h2></div>
+  <p>A student types a question, uploads a photo of it, or simply asks out loud. The tutor speaks, the pen writes the working on the left of the board, and a verified diagram reveals itself on the right, stroke by stroke, timed to the words.</p>
+  <figure>
+    <img src="/accelute/img/02-ask.jpg" alt="Three ways to ask: type, snap a photo, or speak">
+    <figcaption><b>Ask like you would ask a teacher.</b> Typed, photographed or spoken. The familiarity setting (New, Normal, Revision) sets how deep the lesson goes.</figcaption>
+  </figure>
+  <h3>What it does today</h3>
+  <div class="feature">
+    <img src="/accelute/img/07-subjects.jpg" alt="Physics, maths and chemistry figures on the board">
+    <div>
+      <div class="f-title">Four subject lanes</div>
+      <p>Maths and physics figures come from a constraint based diagram engine. Chemistry figures are computed from the formula: 13 families, including skeletal organic structures drawn from the compound name.</p>
+      <p>Programming lessons run a real simulator on the algorithm and draw every board frame from its trace, across 75 LeetCode problem families.</p>
+    </div>
+  </div>
+  <div class="feature">
+    <img src="/accelute/img/06-keep.jpg" alt="Replay and download a finished lesson">
+    <div>
+      <div class="f-title">Replay it, keep it</div>
+      <p>A playback bar with seek, speed and chapters, and a full screen board. Any lesson downloads as PDF notes or as a video with the voice.</p>
+    </div>
+  </div>
+  <ul class="clean">
+    <li><strong>Voice and handwriting in sync.</strong> Natural English voices, plus a Hinglish voice for Indian students, with the pen following the spoken words.</li>
+    <li><strong>Everything around the lessons.</strong> Sign in with Google or email, saved lessons with private storage for audio and photos, a landing site, and an admin view where I watch usage and read every failed lesson.</li>
+  </ul>
+</section>
+
+<!-- ================= ASK DOUBT ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">III. Asking doubts</div>
+  <h2>One lesson that keeps going until it makes sense</h2></div>
+  <p>In a real class, the most useful moment is when a student stops the teacher and says, wait, I did not get that line. I wanted Accelute to work the same way.</p>
+  <p>At any point in a lesson, a student can circle the line they lost right on the board, or just type or say what confused them, and press Ask Doubt. The lesson pauses. The tutor does not start over or open a new page. It thinks right there on the same board and writes the answer under what is already there, with the same figure and the same numbers, the way a teacher would.</p>
+  <figure>
+    <img src="/accelute/img/05-doubt.jpg" alt="Ask a Doubt: circle a line and ask">
+    <figcaption><b>Circle it and ask.</b> The student rings the step they did not follow; the answer is written right under it, on the same page.</figcaption>
+  </figure>
+  <p>When a student circles a line, the tutor knows exactly which line they mean. Everything on the board is stored with its exact text and position, so the circle is matched to that step instead of being guessed from a picture. If the circle lands on an empty part of the board, the tutor says so rather than pretending.</p>
+  <p>Once the doubt is answered, the student decides what happens next: continue the lesson from where it paused, or ask another doubt. The tutor never carries on by itself or talks over them. They can ask a doubt about the answer to a doubt, and keep going like that for as long as they need. When the page fills up, the board moves to a fresh page and keeps the figure, so the whole conversation stays inside one lesson.</p>
+  <p>It all stays together afterwards. The lesson, the doubts and the answers are saved on the same board, so a replay or a downloaded copy shows exactly how the student got there. If they close the tab halfway, they can come back later and continue from the same spot.</p>
+  <div class="callout"><span class="hand">why it matters</span>A student does not have to understand everything the first time. A lecture becomes a conversation, and they can keep asking until it makes sense.</div>
+</section>
+
+<!-- ================= CONTRIBUTION ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">IV. My contribution</div>
+  <h2>Two streams, one authority boundary</h2></div>
+  <p>I started building Accelute in June 2026 and I have built every part of it myself: the diagram engine, the lesson pipeline, the voice and handwriting sync, the web app, the landing site and the servers it runs on.</p>
+
+  <div class="diagram">
+    <svg viewBox="0 0 760 470" font-family="Inter, sans-serif">
+      <defs>
+        <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7FC4E2"/></marker>
+        <linearGradient id="commit" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6BC0E6"/><stop offset="1" stop-color="#3E9BCB"/></linearGradient>
+      </defs>
+      <text x="24" y="34" font-family="Stack Sans Notch, sans-serif" font-weight="600" font-size="19" fill="#F0F5F7">The model teaches. Code owns every number and every mark.</text>
+      <g fill="none" stroke="#7FC4E2" stroke-opacity="0.75" stroke-width="1.4">
+        <path d="M184 100H206" marker-end="url(#ar)"/><path d="M368 100H390" marker-end="url(#ar)"/><path d="M552 100H574" marker-end="url(#ar)"/>
+        <path d="M656 128V196H492" marker-end="url(#ar)"/>
+        <path d="M380 224V244H208V262" marker-end="url(#ar)"/><path d="M380 244H552V262" marker-end="url(#ar)"/>
+        <path d="M208 336V374" marker-end="url(#ar)"/><path d="M552 336V374" marker-end="url(#ar)"/>
+      </g>
+      <g font-size="13.5" text-anchor="middle">
+        <rect x="24" y="72" width="160" height="56" rx="10" fill="#0E2433" stroke="#7FC4E2" stroke-opacity="0.35"/>
+        <text x="104" y="96" font-weight="600" fill="#F0F5F7">Question</text><text x="104" y="114" font-size="11.5" fill="#A9C3CF">typed, photo or voice</text>
+        <rect x="208" y="72" width="160" height="56" rx="10" fill="none" stroke="#7FC4E2" stroke-dasharray="5 4"/>
+        <text x="288" y="96" font-weight="600" fill="#F0F5F7">Model plans</text><text x="288" y="114" font-size="11.5" fill="#A9C3CF">quantities and laws</text>
+        <rect x="392" y="72" width="160" height="56" rx="10" fill="#0E2433" stroke="#7FC4E2" stroke-opacity="0.35"/>
+        <text x="472" y="96" font-weight="600" fill="#F0F5F7">Solver</text><text x="472" y="114" font-size="11.5" fill="#A9C3CF">recomputes numbers</text>
+        <rect x="576" y="72" width="160" height="56" rx="10" fill="#0E2433" stroke="#7FC4E2" stroke-opacity="0.35"/>
+        <text x="656" y="96" font-weight="600" fill="#F0F5F7">Diagram engine</text><text x="656" y="114" font-size="11.5" fill="#A9C3CF">proves and lays out</text>
+        <rect x="270" y="168" width="220" height="56" rx="10" fill="url(#commit)"/>
+        <text x="380" y="192" font-weight="700" fill="#04121B">Atomic commit</text><text x="380" y="210" font-size="11.5" fill="#06263A">only a figure that passed</text>
+        <rect x="58" y="264" width="300" height="72" rx="10" fill="none" stroke="#7FC4E2" stroke-dasharray="5 4"/>
+        <text x="208" y="290" font-weight="600" fill="#F0F5F7">Teaching stream</text><text x="208" y="308" font-size="11.5" fill="#A9C3CF">narrates and writes the working</text><text x="208" y="324" font-size="11.5" fill="#A9C3CF">points only at verified parts</text>
+        <rect x="402" y="264" width="300" height="72" rx="10" fill="#0E2433" stroke="#7FC4E2" stroke-opacity="0.35"/>
+        <text x="552" y="290" font-weight="600" fill="#F0F5F7">Diagram stream</text><text x="552" y="308" font-size="11.5" fill="#A9C3CF">reveals the verified figure</text><text x="552" y="324" font-size="11.5" fill="#A9C3CF">stroke by stroke, on cue</text>
+        <rect x="58" y="376" width="644" height="56" rx="10" fill="#F6E3C3"/>
+        <text x="380" y="400" font-family="Caveat, cursive" font-weight="700" font-size="21" fill="#283342">Whiteboard</text><text x="380" y="420" font-size="11.5" fill="#4A5563">voice, pen and figure in sync</text>
+      </g>
+      <g font-size="11.5" fill="#A9C3CF">
+        <line x1="58" y1="456" x2="86" y2="456" stroke="#7FC4E2" stroke-dasharray="5 4"/><text x="94" y="460">language model</text>
+        <rect x="218" y="449" width="28" height="14" rx="3" fill="#0E2433" stroke="#7FC4E2" stroke-opacity="0.35"/><text x="254" y="460">deterministic code</text>
+      </g>
+    </svg>
+  </div>
+  <p>The decision that shaped everything was the architecture. The diagram stream is deterministic code. The teaching stream is the language model. The model can narrate, write equations in the work area and point at verified parts of the figure. It can never draw, label or supply a coordinate, and the runtime enforces that.</p>
+  <p>Every lesson runs through the same pipeline. The model plans the question and lists the quantities and laws involved. A deterministic solver recomputes every number from the question itself, so a wrong number from the model can never sit beside a correct figure. The engine compiles candidate figures, validates and proves them, lays out the labels, and picks the most honest tier that passed: exact, qualitative, or a faithful picture of the question. Only then does the figure commit and the narration start. If nothing passes, the board stays clean and the lesson still teaches.</p>
+
+  <div class="feature small">
+    <img src="/accelute/img/04-steps.jpg" alt="The pen writes each line as the voice speaks it">
+    <div>
+      <div class="f-title">Voice and pen in sync</div>
+      <p>The digit lands on the board at the moment the voice says it. Getting there took six separate fixes, each one measured first and then guarded by a check.</p>
+    </div>
+  </div>
+  <h3>The hardest problems I solved</h3>
+  <p>Each one started with a measurement, and each fix ended with an automated gate that keeps it fixed.</p>
+  <table>
+    <thead><tr><th style="width:24%">Problem</th><th>What I did</th><th style="width:22%">Result</th></tr></thead>
+    <tr><td>Silent gaps between spoken sentences</td><td>Generated upcoming sentences ahead on named voice streams, and closed each stream properly so its end arrived on time</td><td class="res num">1,211 ms → 20 ms<br><span style="font-weight:400;color:var(--muted)">median gap</span></td></tr>
+    <tr><td>Slow lesson start</td><td>Profiled the turn end to end. The step that grounds the numbers was timing out, so I rebuilt how it runs</td><td class="res num">43 s → 25 s<br><span style="font-weight:400;color:var(--muted)">ask to first word, median</span></td></tr>
+    <tr><td>Pen out of step with the voice</td><td>Found six separate causes (playback rate, unused exact timings, wrong writing speed, missed word matches and more) and fixed each with its own test</td><td class="res">Pen follows the spoken word</td></tr>
+    <tr><td>Jerky handwriting</td><td>Found that chained animations each lost a frame: 33 ms of every 50 ms glyph was dead time</td><td class="res num">44x → 10x<br><span style="font-weight:400;color:var(--muted)">speed spread in one figure</span></td></tr>
+    <tr><td>Leader lines crossing out their labels</td><td>Rewrote how the label engine routes leaders, then counted collisions across the whole corpus</td><td class="res num">893 → 0<br><span style="font-weight:400;color:var(--muted)">collisions</span></td></tr>
+    <tr><td>Voice misreading notation</td><td>Built a round trip check: speak each line, transcribe it back, compare the words</td><td class="res num">2,567 → 6<br><span style="font-weight:400;color:var(--muted)">hazardous lines</span></td></tr>
+    <tr><td>Costly, uneven model calls</td><td>Added a provider switch and ran the same harness on each model</td><td class="res">About a third of the cost<br><span style="font-weight:400;color:var(--muted)">on sponsored cloud credits</span></td></tr>
+  </table>
+</section>
+
+<!-- ================= HOW I WORK ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">V. How I work</div>
+  <h2>I test it the way a student would use it</h2></div>
+  <p>Most of my time does not go into new features. It goes into watching lessons. I built a small tool that plays a full lesson from start to finish, the same way a student would, and saves a picture of the board at every step. That way I look at what a student actually sees, instead of guessing from the code. When I change something, I try it on questions I did not use while building it, so I know it works in general and not only on my own examples.</p>
+  <p>When I find a problem, I try to fix it once. Every fix comes with an automatic check that fails if the problem ever comes back, and now and then I break the code on purpose to make sure the check really catches it. It feels slower in the moment, but it lets me keep changing things without quietly breaking something I fixed a month ago.</p>
+  <p>I have also learned to let go of my own work. Early on I drew diagrams by hand for single topics. They looked great in a demo, but every new topic needed more hand work, so I stopped and built general pieces that work across many questions instead. Some changes made no real difference when I tested them, and I left those out.</p>
+  <p>I build for the students I know. Many of them think in a mix of Hindi and English, so the tutor can explain in Hinglish while the board stays in English, the way their exams are written. And because I run everything myself, from the server to every release, I am also the one who notices when something goes wrong and puts it right.</p>
+</section>
+
+<!-- ================= LEARNED ================= -->
+<section>
+  <div class="keep"><div class="sec-kicker">VI. What I learned</div>
+  <h2>What building Accelute taught me</h2></div>
+  <p>The biggest thing I learned was to be clear about what the AI should and should not do. It is good at explaining things in a friendly, natural way, but it is not reliable at drawing exact figures. So I let it do the talking and kept the drawing in code that I can check. That one decision made the whole thing much easier to trust.</p>
+  <p>I also learned to measure a problem before trying to fix it. Small things, like a short pause in the voice or the pen running a little behind the words, are easy to ignore. Once I actually measured them, they were much easier to fix, and they stayed fixed.</p>
+  <p>There is still plenty to improve. Some figures still miss parts of what the question asks for, and that is what I am working on now. I also want more students to use Accelute, so that their real questions guide what I build next.</p>
+  <figure>
+    <img src="/accelute/img/08-hinglish.jpg" alt="Hinglish voice option with the board kept in English">
+    <figcaption><b>Built for the students I know.</b> A Hinglish voice for Indian students, while the board stays in English so the notes match their exams.</figcaption>
+  </figure>
+  <div class="endcard">
+    <div class="ec-left">
+      <div class="ec-hand">see it for yourself</div>
+      <div class="ec-title">Try a lesson at <a href="https://accelute.co" target="_blank" rel="noopener">accelute.co</a></div>
+      <p>Ask any maths, physics, chemistry or programming question and watch the board fill in, one stroke at a time.</p>
+      <div class="ec-by">by <b>Rishi Vhavle</b> aka <b>kaizen</b></div>
+      <div class="ec-links"><a href="https://github.com/kaizen403" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path fill="#FFFFFF" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a><a href="https://www.linkedin.com/in/rishi-vhavle-35a166296" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2" fill="#FFFFFF"/><path fill="#0A66C2" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a><a href="https://accelute.co" target="_blank" rel="noopener"><svg viewBox="0 0 256 256"><path d="M 144 256 L 40 256 L 144 152 Z M 256 200 L 200 256 L 200 56 L 0 56 L 56 0 L 256 0 Z M 0 216 L 0 112 L 104 112 Z" fill="#F0F5F7"/></svg><span>accelute.co</span></a></div>
+    </div>
+    <a class="ec-shot" href="https://accelute.co" target="_blank" rel="noopener"><img src="/accelute/img/07-subjects.jpg" alt="Figures drawn by Accelute"></a>
+  </div>
+</section>
+
+<div class="back"><a href="/">&larr; Back to rishivhavle.works</a><a href="/accelute/Accelute-Case-Study.pdf" download>Download the PDF</a></div>
+</main>
+</body>
+</html>

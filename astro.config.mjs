@@ -5,9 +5,13 @@ import vercel from '@astrojs/vercel/static';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://www.rishivhavle.works",
   output: 'static',
   adapter: vercel(),
-  integrations: [tailwind(), sitemap()],
+  integrations: [
+    tailwind(),
+    sitemap({ customPages: ["https://www.rishivhavle.works/accelute"] }),
+  ],
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

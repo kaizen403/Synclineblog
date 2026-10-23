@@ -26,7 +26,12 @@ const { Content } = await post.render();
 
 ---
 
-<Layout title={post.data.title}>
+<Layout
+  title={`${post.data.title} | Kaizen`}
+  description={post.data.description}
+  og={{ title: post.data.title, type: "article" }}
+  article={{ publishedTime: post.data.publishedAt.toISOString() }}
+>
   <main class="post mx-auto flex w-full max-w-prose flex-col gap-4">
     <header role="presentation">
       <p class="text-md">

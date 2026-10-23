@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import presentation from "@/data/presentation";
 
 
 type Props = {
@@ -22,10 +23,9 @@ const { title, description, noindex, og, article } = Astro.props;
 
 const SITE_NAME = "Kaizen";
 const DEFAULT_TITLE_PAGE = "Kaizen";
-const DEFAULT_DESCRIPTION_PAGE =
-  "Rishi Vhavle, aka kaizen. A 21-year-old powerlifter who builds AI products, including Accelute, an AI tutor that teaches on a whiteboard.";
+const DEFAULT_DESCRIPTION_PAGE = presentation.description;
 const DEFAULT_IMAGE = "/og.png";
-const DEFAULT_IMAGE_ALT = "Hi, I'm Rishi, aka kaizen. Powerlifter who builds AI products.";
+const DEFAULT_IMAGE_ALT = `Hi, I'm Rishi, aka kaizen. ${presentation.description}`;
 
 const pageTitle = title || DEFAULT_TITLE_PAGE;
 const pageDescription = description || DEFAULT_DESCRIPTION_PAGE;
